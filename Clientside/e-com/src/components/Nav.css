@@ -1,0 +1,167 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  /* Navbar container */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #2874f0;
+  }
+  
+  /* Logo Styling */
+  .navbar .logo {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Search Bar Styling */
+  .navbar .search-bar {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 20px;
+  }
+  
+  .navbar .search-bar input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 80%;
+  }
+  
+  .navbar .search-bar button {
+    background-color: #ff9800;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  /* Menu Links Styling */
+  .navbar .menu {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar .menu .dropdown {
+    position: relative;
+  }
+  
+  .navbar .menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .navbar .menu .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    top: 30px;
+    left: 0;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .navbar .menu .dropdown-menu a {
+    color: #2874f0;
+    font-weight: normal;
+  }
+  
+  .navbar .menu a:hover,
+  .navbar .menu .dropdown-menu a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Profile Section */
+  .navbar .profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .navbar .profile .login-btn {
+    background-color: #ff9800;
+    padding: 8px 15px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .navbar .profile .profile-icon {
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .navbar .profile .profile-dropdown-menu {
+    position: absolute;
+    background-color: white;
+    top: 40px;
+    right: 0;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .navbar .profile .profile-dropdown-menu a {
+    color: #2874f0;
+    font-weight: normal;
+  }
+  
+  .navbar .profile .profile-dropdown-menu a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navbar .search-bar {
+      margin: 10px 0;
+      width: 100%;
+    }
+  
+    .navbar .menu {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .navbar .profile {
+      margin-top: 10px;
+    }
+  }
+  
