@@ -1,6 +1,6 @@
-import userSchema from "./model/user.js"
-import userDataSchema from "./model/userData.js"
-import postSchema from "./model/post.js"
+// import userSchema from "./model/user.js"
+// import userDataSchema from "./model/userData.js"
+// import postSchema from "./model/post.js"
 import nodemailer from "nodemailer"
 
 import bcrypt from "bcrypt"
