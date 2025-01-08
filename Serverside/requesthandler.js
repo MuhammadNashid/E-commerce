@@ -1,7 +1,7 @@
 import userSchema from "./model/user.js"
-import addressSchema from "./model/Useraddress.js"
+import addressSchema from "./model/address.js"
 import sellerSchema from "./model/seller.js"
-import productSchema from "./model/Product.js"
+import productSchema from "./model/product.js"
 import { validationResult } from "express-validator";
 import bcrypt from 'bcrypt'
 import pkg from "jsonwebtoken"
@@ -45,7 +45,52 @@ export async function login(req, res) {
     res.status(201).send({ token })
 }
 
+export async function verifyEmail(req, res) {
+  const { email } = req.body
+  
+  if (!email) {
+    return res.status(500).send({ msg: "fields are empty" })
+  }
+  const user = await userSchema.findOne({ email })
+  if (!user) {
+    return res.status(500).send({ msg: "email not exist" })
+  } else {
+    const info = await transporter.sendMail({
+      from: "muhammadnashid905@gmail.com",
+      to: email,
+      subject: "verify",
+      text: "VERIFY! your email",
+      html: `
+    <div class=" page" style="width: 500px; height: 300px; display: flex; 
+    align-items: center; justify-content: center; flex-direction: column;
+     background-color: gainsboro;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; ">
+        <h2>Email verification</h2>
+        <p>Click This Button to verify its you</p>
+        <a href="http://localhost:5173/resetPassword"><button style="padding: 5px 15px; border: none; border-radius: 4px; 
+        background-color: white;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        font-size: 18px; color: red; font-style: italic;" >Verify</button></a>
+    </div>`,
+    })
+    console.log("Message sent: %s", info.messageId)
+    res.status(200).send({ msg: "Verificaton email sented" })
+  }
+}
 
+export async function updatePassword(req,res){
+  const {pass,cpass,email}=req.body
+  console.log(req.body);
+  if(pass!=cpass)
+      return res.status(500).send({msg:"password missmatch"})
+  bcrypt.hash(pass,10).then((hpwd)=>{
+      userSchema.updateOne({ email }, { $set: { pass: hpwd } }).then(()=>{
+          res.status(201).send({msg:"Password changed successfully"})
+      }).catch((error)=>{
+          res.status(404).send({error:error})
+      })  
+  }).catch((error)=>{
+      console.log(error)
+  })
+}
 // export async function getUser(req, res) {
 //   const usr = await userSchema.findOne({ _id: req.user.UserID })
 //   res.status(200).send({ name: usr.username})
