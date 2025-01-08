@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./Register.css"
-import loginimg from "../assets/login.png"
+// import loginimg from "../assets/login.png"
 
 import { useNavigate } from 'react-router-dom';
 
@@ -59,7 +59,7 @@ const Register = () => {
         <div className="left-sider">
             <h1 className="h1s">Sign Up</h1>
             <p>Sign up with your personal details to get started</p>
-            <img src={loginimg} alt=""  className="img2"/>
+            {/* <img src={loginimg} alt=""  className="img2"/> */}
         </div>
       {error && <p className="error-message">{error}</p>}
       {success && <p className="success-message">{success}</p>}

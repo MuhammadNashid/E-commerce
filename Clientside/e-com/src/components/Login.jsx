@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import loginimg from "../assets/login.png"
+// import loginimg from "../assets/login.png"
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css"
@@ -51,7 +51,7 @@ const Login = () => {
       <div className="login-left">
         <h2 className="h2">𝗟𝗢𝗚𝗜𝗡</h2>
         <p>Get access to your Orders, Wishlist, and Recommendations</p>
-        <img src={loginimg} alt=""  className="img1"/>
+        {/* <img src={loginimg} alt=""  className="img1"/> */}
       </div>
 
         {error && <p className="error-message">{error}</p>} {/* Display error */}
