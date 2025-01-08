@@ -1,0 +1,64 @@
+.profile-page{
+    width: 100%;
+    height: 100%;
+  }
+  .profile-sidebar{
+    width: 300px;
+    height: 500px;
+    margin-left: 20px;
+    background-color: rgb(223, 218, 218);
+  }
+  .pro1{
+    width: 90px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: seagreen;
+    color: white;
+    font-weight: bold;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 3px;
+  }
+  .car1{
+    width: 90px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: seagreen;
+    color: white;
+    font-weight: bold;
+  text-align: center;
+  margin-right: 3px;
+  }
+  .wi1{
+    width: 90px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: seagreen;
+    color: white;
+    font-weight: bold;
+  text-align: center;
+  }
+  .acc{
+    color: blue;
+    margin-left: 70px;
+    margin-bottom: 20px;
+  }
+  .lou{
+    width: 90px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: seagreen;
+    color: white;
+    font-weight: bold;
+  text-align: center;
+  margin-top: 360px;
+  margin-left: 70px;
+  }

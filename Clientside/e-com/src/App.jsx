@@ -1,22 +1,39 @@
-import { useState } from 'react'
-import React,{BrowserRouter,Routes,Route} from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Home from "./components/Home"
+import Login from "./components/Login"
 import Nav from './components/Nav'
-import Login from './components/Login'
-import './App.css'
+import Register from "./components/Register"
+import VerifyEmail from "./components/VerifyEmail"
+import Profile from "./components/Profile"
+import SellerPage from "./components/SellerPage"
+import AddProduct from "./components/AddProduct"
+import CategoryPage from "./components/CategoryPage"
+import ProductDetailsPage from "./components/ProductDetailsPage"
+import ResetPassword from "./components/ResetPassword"
+import { useState } from "react"
+import ProductDetails from "./components/ProductDetails"
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [name,setName]=useState("")
   return (
     <>
-    <BrowserRouter>
-    <Nav/>
-    <Routes>
-      <Route path="/login" element={<Login/>}></Route>
-    </Routes>
-    </BrowserRouter>
-     
-   
+      <BrowserRouter>
+      <Nav setName={setName}/>
+      <Routes>
+      <Route path="/" element={<Home name={name}/>}></Route>
+        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/register" element={<Register/>}></Route>
+        <Route path="/verifyEmail" element={<VerifyEmail/>}></Route>
+        <Route path="/profile" element={<Profile/>}></Route>
+        <Route path="/sellerPage" element={<SellerPage/>}></Route>
+        <Route path="/addProduct" element={<AddProduct/>}></Route>
+        <Route path="/category/:category" element={<CategoryPage/>}></Route>
+        <Route path="/products/:productId" element={<ProductDetailsPage/>}></Route>
+        <Route path="/product/:productId" element={<ProductDetails/>}></Route>
+        <Route path="/resetPassword" element={<ResetPassword/>}></Route>
+      </Routes>
+      </BrowserRouter>
     </>
   )
 }

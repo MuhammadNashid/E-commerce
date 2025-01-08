@@ -1,101 +1,53 @@
-// import React from 'react';
-// import './Nav.css';
+import React from "react";
+import "./Nav.css"
+import { Link, useNavigate } from "react-router-dom";
 
-// function Navbar() {
-//   return (
-//     <nav className="navbar">
-//       {/* Logo */}
-//       <div className="logo">
-//         Flipkart
-//       </div>
+const Nav = ({setName}) => {
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
 
-//       {/* Search Bar */}
-//       <div className="search-bar">
-//         <input type="text" placeholder="Search for products, brands and more" />
-//         <button>Search</button>
-//       </div>
-
-//       {/* Menu */}
-//       <div className="menu">
-//         <a href="#">Home</a>
-//         <a href="#">Electronics</a>
-//         <a href="#">Fashion</a>
-//         <a href="#">Home & Furniture</a>
-//         <a href="#">Toys</a>
-//         <a href="#">Groceries</a>
-//       </div>
-//     </nav>
-//   );
-// }
-
-// export default Navbar;
-
-import React, { useState } from 'react';
-import './Nav.css';
-import { FaUserCircle, FaCaretDown } from 'react-icons/fa'; // Profile Icon
-
-function Navbar() {
-  // State for managing the profile dropdown and category dropdown
-  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
-
-  const toggleProfileDropdown = () => {
-    setIsProfileDropdownOpen(!isProfileDropdownOpen);
-  };
-
-  const toggleCategoryDropdown = () => {
-    setIsCategoryDropdownOpen(!isCategoryDropdownOpen);
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    alert("Successfully logged out!");
+    location.reload()
   };
 
   return (
     <nav className="navbar">
-      {/* Logo */}
-      <div className="logo">Flipkart</div>
-
-      {/* Search Bar */}
-      <div className="search-bar">
-        <input type="text" placeholder="Search for products, brands and more" />
-        <button>Search</button>
+      <div className="navbar-brand">
+        <a href="/" className="logo">FLIPKART</a>
+        {/* <p className="b1">ᴮᵉᵃᵘᵗʸ ᵃⁿᵈ ᴳʳᵒᵒᵐⁱⁿᵍ</p> */}
       </div>
 
-      {/* Menu (Categories Dropdown) */}
-      <div className="menu">
-        <div className="dropdown">
-          <a href="#" onClick={toggleCategoryDropdown}>Categories <FaCaretDown /></a>
-          {isCategoryDropdownOpen && (
-            <div className="dropdown-menu">
-              <a href="#">Electronics</a>
-              <a href="#">Fashion</a>
-              <a href="#">Home & Furniture</a>
-              <a href="#">Toys</a>
-              <a href="#">Groceries</a>
-            </div>
-          )}
-        </div>
+      <div className="nav-center">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="search for cosmetics and more..."
+          onChange={(e) => setName(e.target.value)}
+        />
       </div>
-
-      {/* Profile and Login Section */}
-      <div className="profile">
-        <button className="login-btn"><a href="/Login">Login</a></button>
-
-        {/* Profile Icon and Dropdown */}
-        <div className="profile-dropdown">
-          <FaUserCircle
-            className="profile-icon"
-            onClick={toggleProfileDropdown}
-          />
-          {isProfileDropdownOpen && (
-            <div className="dropdown-menu profile-dropdown-menu">
-              <a href="#">Profile</a>
-              <a href="#">Orders</a>
-              <a href="#">Wishlist</a>
-              <a href="#">Logout</a>
+      <div className="nav-links">
+        {token ? (
+          <>
+            <div className="dropdown">
+            <button className="profile-icon"></button>
+              {/* <button className="dropdown-btn">Account</button> */}
+              <div className="dropdown-content">
+                <Link to="/profile">Profile</Link>
+                <button onClick={handleLogout}>Logout</button>
+              </div>
             </div>
-          )}
-        </div>
+          </>
+        ) : (
+          <Link to="/login">
+            <button className="log">
+            Login</button>
+            </Link>
+        )}
       </div>
     </nav>
   );
-}
+};
 
-export default Navbar;
+export default Nav;

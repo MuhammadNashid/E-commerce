@@ -1,0 +1,136 @@
+/* Container for the entire register page */
+.register-page {
+    display: flex;
+    height: 100vh; /* Full height of the viewport */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+  }
+  
+  /* Register container holding the header and form */
+  .register-container {
+    display: flex; 
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 100px;
+   
+  }
+  .h1s{
+    margin-left: 80px;
+    margin-top: 30px;
+    color: white;
+  }
+  
+  .in2 {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #ccc; /* Bottom border */
+    transition: border-color 0.3s ease;
+  }
+  
+  .in2:focus {
+    border-bottom-color: #0066cc; /* Change bottom border color on focus */
+  }
+  
+  select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+    transition: border-color 0.3s ease;
+  }
+  
+  select:focus {
+    border-bottom-color: #0066cc;
+  }
+  
+  /* Left side for heading - making it larger */
+  .left-sider{
+  width: 300px;
+  height: 600px;
+  margin-top: 70px;
+  margin-left: 200px;
+  background-color: rgb(44, 127, 204);
+  border-radius: 2px;
+  color: white;
+  box-shadow: 0 0 2px 2px rgb(230, 227, 227);
+  }
+  
+  /* Right side for form - making it smaller */
+  .right-sider{
+    width: 600px;
+    height: 600px;
+    background-color: #fcfdff;
+    border-radius: 2px;
+    margin-top: 70px;
+    box-shadow: 0 0 2px 2px rgb(230, 227, 227);
+  }
+  
+  
+  /* .forms-group {
+    margin-bottom: 15px;
+    width: 100%;
+  } */
+  .forms-group{
+  width: 500px;
+  }
+  input,
+  select {
+    width: 500px;
+    padding: 12px;
+   margin-left: 30px;
+   margin-top: 25px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  input[type="password"] {
+    width: calc(520px - 24px);
+    border: 1px solid rgb(184, 178, 178);
+  }
+  
+  button.btn-submit {
+    width: 500px;
+    padding: 12px;
+    background-color: #fb641b; /* Blue color for the button */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 30px;
+  }
+  
+  /* For the informational texts */
+   .con2 {
+    font-size: 12px;
+    color: #474444;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  p{
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+    color: white;
+  }
+  .le2 {
+    color: #3950cf;
+    cursor: pointer;
+  }
+  .img2{
+  margin-top: 250px;
+  margin-left: 40px;
+  }
