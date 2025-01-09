@@ -27,7 +27,7 @@ const Home = ({name}) => {
 
   return (
     <div className="home-page">
-      <h2>All Products</h2>
+      <h2 style={{textAlign:"center"}}>All Products</h2>
       {products.length > 0 ? (
         <div className="product-grid">
           {products
@@ -40,7 +40,7 @@ const Home = ({name}) => {
           ))}
         </div>
       ) : (
-        <p>No products found.</p>
+        <p></p>
       )}
     </div>
   );

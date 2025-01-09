@@ -9,7 +9,7 @@ body {
   justify-content: space-between;
   padding: 10px 10px;
   height: 50px;
-  background-color: #1a96e9;
+  background-color: rgb(0, 183, 255);
   border-bottom: 1px solid #ccc;
 }
 
@@ -72,29 +72,26 @@ body {
 }
 .search-input {
   flex: 1;
- height: 20px;
-  border: 2px solid #111111;
+  height: 10px;
+  outline: 0;
   border-radius: 5px;
   font-size: 14px;
-  margin-right: 30px;
- margin-top: -10px;
+  margin-left: -130px;
+  margin-top: -10px;
 }
+.cart{
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 
-.search-button {
+}
+/* .search-button {
   background-color: #002f34;
   color: #fff;
   border: none;
   padding: 10px;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
-}
-
-/* .engs{
-  width: 120px;
-  height: 50px;
-  border: 1px solid  #cbd8d6;
-  background-color:  #cbd8d6;
-  margin-right: 30px;
 } */
 
 .nav-right {
