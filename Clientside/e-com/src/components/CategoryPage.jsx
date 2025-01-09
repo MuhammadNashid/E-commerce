@@ -1,7 +1,8 @@
+
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
- // Import the SCSS file
+import "./cate.css"
 
 const CategoryPage = () => {
   const { category } = useParams();
@@ -29,17 +30,18 @@ const CategoryPage = () => {
 
   return (
     <div className="category-page">
-      <h2>Products in {category}</h2>
+     
       {products.length > 0 ? (
-        <div className="product-grid">
+        <div className="grid">
+           <h2 className="kj">Products</h2>
           {products.map((product) => (
             <div
               key={product.id}
-              className="product-item"
+              className="pitem"
               onClick={() => navigate(`/product/${product._id}`)}
             >
-              <img src={product.thumbnail} alt={product.name} className="product-thumbnail" />
-              <span>{product.name}</span>
+              <img src={product.thumbnail} alt={product.name} className="product-thumbnail" /><br />
+              <span className="sp">{product.name}</span>
             </div>
           ))}
         </div>

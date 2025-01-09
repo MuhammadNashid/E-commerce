@@ -1,7 +1,8 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import "./SellerPage.css"
 
 const SellerPage = () => {
   const navigate = useNavigate();
@@ -112,7 +113,7 @@ const SellerPage = () => {
     <div className="page-container">
       {/* Left Section: Company Details */}
       <div className="left-section">
-        <h2>Company Details</h2>
+        <h2 className="h2c">Company Details</h2>
         {companyDetails ? (
           // If company details exist, show them in read-only mode
           <div>
@@ -127,13 +128,14 @@ const SellerPage = () => {
           // When adding a company, show the form with input fields
           <form className="company-form">
             <div className="form-field">
-              <label htmlFor="company-name">Company Name:</label>
+              <label  htmlFor="company-name">Company Name:</label>
               <input
                 type="text"
                 id="company-name"
                 name="companyName"
                 value={formData.companyName}
                 onChange={handleChange}
+                 className="lbl"
               />
             </div>
             <div className="form-field">
@@ -144,26 +146,29 @@ const SellerPage = () => {
                 name="place"
                 value={formData.place}
                 onChange={handleChange}
+                 className="lbl"
               />
             </div>
             <div className="form-field">
-              <label htmlFor="pincode">Pincode:</label>
+              <label  htmlFor="pincode">Pincode:</label>
               <input
                 type="text"
                 id="pincode"
                 name="pincode"
                 value={formData.pincode}
                 onChange={handleChange}
+                className="lbl"
               />
             </div>
             <div className="form-field">
-              <label htmlFor="district">District:</label>
+              <label  htmlFor="district">District:</label>
               <input
                 type="text"
                 id="district"
                 name="district"
                 value={formData.district}
                 onChange={handleChange}
+                className="lbl"
               />
             </div>
             <div className="form-field">
@@ -174,6 +179,7 @@ const SellerPage = () => {
                 name="state"
                 value={formData.state}
                 onChange={handleChange}
+                 className="lbl"
               />
             </div>
             <div className="form-field">
@@ -184,13 +190,15 @@ const SellerPage = () => {
                 name="country"
                 value={formData.country}
                 onChange={handleChange}
+                 className="lbl"
               />
             </div>
             <div className="form-actions">
-              <button type="button" onClick={handleSave}>
+              <button className="addb" type="button" onClick={handleSave}>
                 Add
               </button>
               <button
+              className="canb"
                 type="button"
                 onClick={() => {
                   setIsAdding(false); // Close the form without saving
@@ -203,16 +211,16 @@ const SellerPage = () => {
         ) : (
           // If no company details are found, show the "Add Company Details" button
           <div>
-            <p>No company details found.</p>
-            <button onClick={handleAddCompany}>Add Company Details</button>
+            {/* <p>No company details found.</p> */}
+            <button className="seab" onClick={handleAddCompany}>Add Company Details</button>
           </div>
         )}
       </div>
 
       {/* Right Section: Products and Add Button */}
       <div className="right-section">
-        <h2>Products</h2>
-        <div className="product-grid">
+        <h2 className="ph2">Products</h2>
+        <div className="pgrid">
           {Object.keys(productCounts).map((category, index) => (
             <div
               key={index}
@@ -224,7 +232,7 @@ const SellerPage = () => {
           ))}
         </div>
         <button
-          className="add-product-button"
+          className="addpr"
           onClick={() => navigate("/addProduct")}
         >
           +

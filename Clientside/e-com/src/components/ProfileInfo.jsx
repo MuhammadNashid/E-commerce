@@ -117,13 +117,16 @@ const ProfileInfo = () => {
   return (
     <div className="profile-container">
       <div className="profile-card">
-        {userDetails?.accType === "Seller" && (
+        {/* {userDetails?.accType === "Seller" && (
           <button className="seller-btn" onClick={() => navigate("/sellerPage")}>
             Seller Page
           </button>
-        )}
+        )} */}
 
         <h2 className="profile-title">Profile Details</h2>
+        <button className="seller-btn" onClick={() => navigate("/sellerPage")}>
+            Seller Page
+          </button>
         <div className="profile-fields">
           {Object.entries(formData).map(([key, value]) => (
             <div className="profile-field" key={key}>

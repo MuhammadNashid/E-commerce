@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import "./Home.css"
 
 const Home = ({name}) => {
   const token = localStorage.getItem("token");
@@ -27,15 +27,14 @@ const Home = ({name}) => {
 
   return (
     <div className="home-page">
-      <h2 style={{textAlign:"center"}}>All Products</h2>
       {products.length > 0 ? (
         <div className="product-grid">
           {products
           .filter((i)=>i.name?.toLowerCase().includes(name?.toLowerCase() || ""))
           .map((product) => (
-            <Link to={`/products/${product._id}`} key={product._id} className="product-item">
-              <img src={product.thumbnail} alt={product.name} className="product-thumbnail" />
-              <span>{product.name}</span>
+            <Link to={`/products/${product._id}`} key={product._id} className="proit">
+              <img src={product.thumbnail} alt={product.name} className="pthu" />
+              <span className="nam">{product.name}</span>
             </Link>
           ))}
         </div>

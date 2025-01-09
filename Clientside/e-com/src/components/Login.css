@@ -39,13 +39,6 @@ form {
   margin-bottom: 15px;
 }
 
-/* .in1 {
- 
-  padding: 10px;
-  margin: 5px 0;
-  font-size: 1rem;
-} */
-
 .btn-login1 {
   width: 450px;
   height: 40px;
@@ -111,7 +104,6 @@ form {
 .in1:focus {
   border-bottom: 1px solid #007BFF; /* Change to the color of your choice for focus */
 }
-
 .form-group {
   margin-bottom: 20px;
 }

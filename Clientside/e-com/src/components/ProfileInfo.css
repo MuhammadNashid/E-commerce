@@ -3,7 +3,8 @@
     height: 100%;
   }
   .profile-card{
-    background-color: rgb(228, 225, 225);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 2px 2px gray;
     width: 600px;
     height: 500px;
     margin-left: 350px;
@@ -32,7 +33,8 @@
     margin-bottom: 10px;
   }
   .address21{
-    background-color: rgb(202, 195, 195);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 2px 2px gray;
     width: 940px;
     margin-left: 20px;
   }
@@ -63,5 +65,17 @@
     font-weight: bold;
     margin-top: 10px;
     margin-left: 20px;
+    margin-bottom: 10px;
+  }
+  .seller-btn{
+    color: white;
+    background-color: dodgerblue;
+    border: none;
+    border-radius: 3px;
+    width: 90px;
+    height: 30px;
+    font-weight: bold;
+    margin-top: -30px;
+    margin-left: 500px;
     margin-bottom: 10px;
   }

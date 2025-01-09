@@ -4,6 +4,7 @@ import ProfileInfo from "./ProfileInfo";
 import Cart from "./Cart";
 import WishList from "./WishList";
 import "./Profile.css"
+import logo from "../assets/logout.png"
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -31,7 +32,9 @@ const Profile = () => {
           <button className="pro1" onClick={() => handleSectionChange("profile")}>Profile</button>
           <button className="car1" onClick={() => handleSectionChange("cart")}>Cart</button>
           <button className="wi1" onClick={() => handleSectionChange("wishlist")}>Wishlist</button><br />
-          <button className="lou" onClick={handleLogout}>Logout</button>
+          <div className="lou" onClick={handleLogout}>
+            <img className="img1" src={logo} alt="" />
+            Logout</div>
         </div>
       </div>
       <div className="profile-content">

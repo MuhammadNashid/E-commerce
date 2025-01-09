@@ -62,7 +62,7 @@ const Login = () => {
         <div className="form-group">
               <input
                 className="in1"
-                type="tel"
+                type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -73,7 +73,7 @@ const Login = () => {
             <div className="form-group">
               <input
                 className="in1"
-                type="password1"
+                type="pwd"
                 name="pass"
                 value={formData.pass}
                 onChange={handleChange}

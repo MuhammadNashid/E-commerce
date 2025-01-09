@@ -1,0 +1,30 @@
+.home-page{
+    width: 100%;
+    height: 100%;
+  }
+  .product-grid{
+    display: flex;
+    width: 300px;
+  }
+  .pthu{
+    width: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  .proit{
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 250, 250);
+    border: 1px solid rgb(248, 246, 246);
+   margin-top: 20px;
+    margin-left: 10px;
+  
+  }
+  .nam{
+  margin-left: 60px;
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+  }

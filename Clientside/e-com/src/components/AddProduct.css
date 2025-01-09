@@ -1,0 +1,148 @@
+.addpr-con{
+    width: 100%;
+    height: 100%;
+  }
+  .prodm{
+    background-color: rgb(243, 237, 237);
+    box-shadow: 0 0 2px 2px rgb(51, 50, 50);
+    width: 950px;
+    height: 690px;
+    margin-left: 150px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  .titl{
+    color: blue;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .form-field{
+    width: 100%;
+    height: 100%;
+    margin-left: 50px;
+  }
+  .lab{
+    width: 200px;
+    margin-left: 50px;
+  }
+  .inp{
+    width: 250px;
+    margin-top: -1px;
+    margin-left: 15px;
+  }
+  .forms-field{
+    margin-top: -60px;
+    margin-left: 340px;
+  }
+  .lab1{
+    width: 200px;
+    margin-left: 30px;
+    margin-bottom: -100px;
+    font-weight: bold;
+  }
+  .inp1{
+    width: 250px;
+    margin-top: -1px;
+    margin-left: 15px;
+  }
+  .for{
+    margin-top: -60px;
+    margin-left: 600px;
+  }
+  .lab2{
+    width: 200px;
+    margin-left: 25px;
+    margin-bottom: -100px;
+    font-weight: bold;
+  }
+  .inp2{
+    width: 250px;
+    margin-top: -1px;
+    margin-left: 15px;
+  }
+  
+  .form1{
+    margin-left: 75px;
+    margin-top: 15px;
+  }
+  .lab3{
+    font-weight: bold;
+  }
+  .inp3{
+    width: 800px;
+    height: 60px;
+  }
+  .fofi{
+    margin-left: 60px;
+    margin-top: 5px;
+  }
+  .lab4{
+    width: 200px;
+    margin-left: 25px;
+    margin-bottom: -100px;
+    font-weight: bold;
+  }
+  .inp4{
+    width: 780px;
+    height: 10px;
+    margin-top: -1px;
+    margin-left: 15px;
+  }
+  .field{
+    width: 100%;
+    height: 100%;
+  }
+  .fthum{
+    width: 400px;
+    margin-top: 20px;
+    margin-left: 60px;
+    /* background-color: blue; */
+  }
+  .lab5{
+    font-weight: bold;
+  }
+  .inp5{
+    margin-top: -1px;
+    margin-left: -1px;
+    width: 370px;
+  }
+  .field2{
+    width: 100%;
+    height: 100%;
+  }
+  .fprim{
+    width: 420px;
+    margin-top: -240px;
+    margin-left: 470px;
+    /* background-color: rgb(255, 0, 242); */
+  }
+  .lab6{
+    font-weight: bold;
+  }
+  .inp6{
+    margin-top: -1px;
+    margin-left: -1px;
+    width: 390px;
+  }
+  .subtn{
+    width: 100px;
+    height: 30px;
+    background-color: blue;
+    margin-left: 400px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .imgthum img{
+    width: 300px;
+    margin-top: 4px;
+    margin-left: 30px;
+  }
+  .imgpre img{
+    width: 300px;
+   margin-top: 4px;
+   margin-left: 50px;
+  }

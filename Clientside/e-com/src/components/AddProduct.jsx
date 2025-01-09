@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
- // Import SCSS file for styling
+ import "./AddProduct.css"
 import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
@@ -85,11 +85,12 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="add-product-container">
-      <h2 className="title">Add Product</h2>
-      <form onSubmit={handleSubmit} className="add-product-form">
+    <div className="addpr-con">
+      <div className="prodm">
+      <h2 className="titl">Add Product</h2>
+      <form onSubmit={handleSubmit} className="product-form">
         <div className="form-field">
-          <label htmlFor="name">Product Name:</label>
+          <label className="lab" htmlFor="name">Product Name:</label><br />
           <input
             type="text"
             id="name"
@@ -97,19 +98,19 @@ const AddProduct = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="input"
+            className="inp"
           />
         </div>
 
         <div className="form-field">
-          <label htmlFor="category">Category:</label>
+          <label className="lab1" htmlFor="category">Category:</label>
           <select
             id="category"
             name="category"
             value={formData.category}
             onChange={handleChange}
             required
-            className="input"
+            className="inp1"
           >
             <option value="" disabled>
               Select Category
@@ -125,8 +126,8 @@ const AddProduct = () => {
           </select>
         </div>
 
-        <div className="form-field">
-          <label htmlFor="price">Price (₹):</label>
+        <div className="for">
+          <label className="lab2" htmlFor="price">Price (₹):</label><br />
           <input
             type="number"
             id="price"
@@ -134,24 +135,24 @@ const AddProduct = () => {
             value={formData.price}
             onChange={handleChange}
             required
-            className="input"
+            className="inp2"
           />
         </div>
 
-        <div className="form-field">
-          <label htmlFor="description">Description:</label>
+        <div className="form1">
+          <label className="lab3" htmlFor="description">Description:</label><br />
           <textarea
             id="description"
             name="description"
             value={formData.description}
             onChange={handleChange}
             required
-            className="input"
+            className="inp3"
           />
         </div>
 
-        <div className="form-field">
-          <label htmlFor="quantity">Quantity:</label>
+        <div className="fofi">
+          <label className="lab4" htmlFor="quantity">Quantity:</label><br />
           <input
             type="number"
             id="quantity"
@@ -159,12 +160,13 @@ const AddProduct = () => {
             value={formData.quantity}
             onChange={handleChange}
             required
-            className="input"
+            className="inp4"
           />
         </div>
 
-        <div className="form-field">
-          <label htmlFor="thumbnail">Thumbnail Image:</label>
+        <div className="field">
+    <div className="fthum">
+          <label className="lab5" htmlFor="thumbnail">Thumbnail Image:</label>
           <input
             type="file"
             id="thumbnail"
@@ -172,17 +174,19 @@ const AddProduct = () => {
             accept="image/*"
             onChange={handleThumbnailChange}
             required
-            className="file-input"
+            className="inp5"
           />
           {thumbnailPreview && (
-            <div className="image-preview">
+            <div className="imgthum">
               <img src={thumbnailPreview} alt="Thumbnail Preview" />
             </div>
           )}
+  </div>
         </div>
 
-        <div className="form-field">
-          <label htmlFor="images">Product Images:</label>
+        <div className="field">
+          <div className="fprim">
+          <label className="lab6" htmlFor="images">Product Images:</label>
           <input
             type="file"
             id="images"
@@ -191,10 +195,10 @@ const AddProduct = () => {
             multiple
             onChange={handleImagesChange}
             required
-            className="file-input"
+            className="inp6"
           />
           {imagesPreview.length > 0 && (
-            <div className="image-previews">
+            <div className="imgpre">
               {imagesPreview.map((img, index) => (
                 <div key={index} className="image-preview">
                   <img src={img} alt={`Product Preview ${index + 1}`} />
@@ -202,14 +206,16 @@ const AddProduct = () => {
               ))}
             </div>
           )}
+          </div>
         </div>
 
-        <div className="form-actions">
-          <button type="submit" className="submit-btn">
+        <div className="actions">
+          <button type="submit" className="subtn">
             Add Product
           </button>
         </div>
       </form>
+      </div>
     </div>
   );
 };
