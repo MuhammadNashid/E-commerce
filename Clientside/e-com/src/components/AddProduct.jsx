@@ -102,8 +102,8 @@ const AddProduct = () => {
           />
         </div>
 
-        <div className="form-field">
-          <label className="lab1" htmlFor="category">Category:</label>
+        <div className="forms-field">
+          <label className="lab1" htmlFor="category">Category:</label><br />
           <select
             id="category"
             name="category"
@@ -115,14 +115,14 @@ const AddProduct = () => {
             <option value="" disabled>
               Select Category
             </option>
-            <option value="Mobile">Mobile</option>
-            <option value="Laptop">Laptop</option>
-            <option value="Accessories">Accessories</option>
-            <option value="Earbud">Earbud</option>
-            <option value="Trimmer">Trimmer</option>
-            <option value="Charger">Charger</option>
-            <option value="Emergency">Emergency</option>
-            <option value="Speaker">Speaker</option>
+            <option value="Skin care">Skin care</option>
+            <option value="Haircare">Haircare</option>
+            <option value="Nails">Nails</option>
+            <option value="Fragrance">Fragrance</option>
+            <option value="Moisturizer">Moisturizer</option>
+            <option value="Hair removal">Hair removal</option>
+            <option value="Makeup">Makeup</option>
+            <option value="Foundation">Foundation</option>
           </select>
         </div>
 

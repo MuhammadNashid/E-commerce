@@ -135,7 +135,7 @@ const SellerPage = () => {
                 name="companyName"
                 value={formData.companyName}
                 onChange={handleChange}
-                 className="lbl"
+                 className="lbls"
               />
             </div>
             <div className="form-field">
@@ -146,7 +146,6 @@ const SellerPage = () => {
                 name="place"
                 value={formData.place}
                 onChange={handleChange}
-                 className="lbl"
               />
             </div>
             <div className="form-field">
@@ -157,7 +156,7 @@ const SellerPage = () => {
                 name="pincode"
                 value={formData.pincode}
                 onChange={handleChange}
-                className="lbl"
+               
               />
             </div>
             <div className="form-field">
@@ -168,7 +167,7 @@ const SellerPage = () => {
                 name="district"
                 value={formData.district}
                 onChange={handleChange}
-                className="lbl"
+                
               />
             </div>
             <div className="form-field">
@@ -179,18 +178,19 @@ const SellerPage = () => {
                 name="state"
                 value={formData.state}
                 onChange={handleChange}
-                 className="lbl"
+                
               />
             </div>
             <div className="form-field">
               <label htmlFor="country">Country:</label>
               <input
                 type="text"
+                className="count"
                 id="country"
                 name="country"
                 value={formData.country}
                 onChange={handleChange}
-                 className="lbl"
+               
               />
             </div>
             <div className="form-actions">

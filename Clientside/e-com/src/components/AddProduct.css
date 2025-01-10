@@ -1,148 +1,242 @@
-.addpr-con{
-    width: 100%;
-    height: 100%;
-  }
-  .prodm{
-    background-color: rgb(243, 237, 237);
-    box-shadow: 0 0 2px 2px rgb(51, 50, 50);
-    width: 950px;
-    height: 690px;
-    margin-left: 150px;
-    border-radius: 2px;
-    margin-bottom: 20px;
-  }
-  .titl{
-    color: blue;
-    text-align: center;
-    margin-top: 10px;
-  }
-  .form-field{
-    width: 100%;
-    height: 100%;
-    margin-left: 50px;
-  }
-  .lab{
-    width: 200px;
-    margin-left: 50px;
-  }
-  .inp{
-    width: 250px;
-    margin-top: -1px;
-    margin-left: 15px;
-  }
-  .forms-field{
-    margin-top: -60px;
-    margin-left: 340px;
-  }
-  .lab1{
-    width: 200px;
-    margin-left: 30px;
-    margin-bottom: -100px;
-    font-weight: bold;
-  }
-  .inp1{
-    width: 250px;
-    margin-top: -1px;
-    margin-left: 15px;
-  }
-  .for{
-    margin-top: -60px;
-    margin-left: 600px;
-  }
-  .lab2{
-    width: 200px;
-    margin-left: 25px;
-    margin-bottom: -100px;
-    font-weight: bold;
-  }
-  .inp2{
-    width: 250px;
-    margin-top: -1px;
-    margin-left: 15px;
-  }
+/* .addpr-con{
+  width: 100%;
+  height: 100%;
+}
+.prodm{
+  background-color: rgb(243, 237, 237);
+  box-shadow: 0 0 2px 2px rgb(51, 50, 50);
+  width: 950px;
+  height: 620px;
+  margin-left: 150px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+.titl{
+  color: blue;
+  text-align: center;
+  margin-top: 10px;
+}
+.form-field{
+  width: 100%;
+  height: 100%;
+  margin-left: 50px;
+}
+.lab{
+  width: 200px;
+  margin-left: 50px;
+}
+.inp{
+  width: 250px;
+  margin-top: -1px;
+  margin-left: 15px;
+}
+.forms-field{
+  margin-top: -60px;
+  margin-left: 340px;
+}
+.lab1{
+  width: 200px;
+  margin-left: 30px;
+  margin-bottom: -100px;
+  font-weight: bold;
+}
+.inp1{
+  width: 250px;
+  margin-top: -1px;
+  margin-left: 15px;
+}
+.for{
+  margin-top: -60px;
+  margin-left: 600px;
+}
+.lab2{
+  width: 200px;
+  margin-left: 25px;
+  margin-bottom: -100px;
+  font-weight: bold;
+}
+.inp2{
+  width: 250px;
+  margin-top: -1px;
+  margin-left: 15px;
+}
+
+.form1{
+  margin-left: 75px;
+  margin-top: 15px;
+}
+.lab3{
+  font-weight: bold;
+}
+.inp3{
+  width: 800px;
+  height: 60px;
+}
+.fofi{
+  margin-left: 60px;
+  margin-top: 5px;
+}
+.lab4{
+  width: 200px;
+  margin-left: 25px;
+  margin-bottom: -100px;
+  font-weight: bold;
+}
+.inp4{
+  width: 780px;
+  height: 10px;
+  margin-top: -1px;
+  margin-left: 15px;
+}
+.field{
+  width: 100%;
+  height: 100%;
+}
+.fthum{
+  width: 400px;
+  margin-top: 20px;
+  margin-left: 60px;
+}
+.lab5{
+  font-weight: bold;
+}
+.inp5{
+  margin-top: -1px;
+  margin-left: -1px;
+  width: 370px;
+}
+.field2{
+  width: 100%;
+  height: 100%;
+}
+.fprim{
+  width: 420px;
+  margin-top: -65px;
+  margin-left: 470px;
   
-  .form1{
-    margin-left: 75px;
-    margin-top: 15px;
-  }
-  .lab3{
-    font-weight: bold;
-  }
-  .inp3{
-    width: 800px;
-    height: 60px;
-  }
-  .fofi{
-    margin-left: 60px;
-    margin-top: 5px;
-  }
-  .lab4{
-    width: 200px;
-    margin-left: 25px;
-    margin-bottom: -100px;
-    font-weight: bold;
-  }
-  .inp4{
-    width: 780px;
-    height: 10px;
-    margin-top: -1px;
-    margin-left: 15px;
-  }
-  .field{
+}
+.lab6{
+  font-weight: bold;
+}
+.inp6{
+  margin-top: -1px;
+  margin-left: -1px;
+  width: 390px;
+}
+.subtn{
+  width: 100px;
+  height: 30px;
+  background-color: blue;
+  margin-left: 400px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.imgthum img{
+  width: 300px;
+  margin-top: 4px;
+  margin-left: 30px;
+}
+.imgpre img{
+  width: 300px;
+ margin-top: 4px;
+ margin-left: 50px;
+} */
+
+.addpr-con {
+  width: 100%;
+  height: auto; /* Adjust height based on content */
+  padding: 10px;
+  box-sizing: border-box;
+}
+.prodm {
+  background-color: rgb(243, 237, 237);
+  box-shadow: 0 0 2px 2px rgb(51, 50, 50);
+  width: 90%;
+  max-width: 950px;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 5px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.titl {
+  color: blue;
+  text-align: center;
+  margin-top: 10px;
+}
+.form-field, .forms-field, .for, .form1, .fofi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.lab, .lab1, .lab2, .lab3, .lab4, .lab5, .lab6 {
+  font-weight: bold;
+  flex: 1 0 30%; /* Adjust flex-basis to suit the label width */
+  margin-bottom: 5px;
+}
+.inp, .inp1, .inp2, .inp3, .inp4, .inp5, .inp6 {
+  flex: 1 0 65%; /* Adjust flex-basis for input width */
+  padding: 5px;
+  box-sizing: border-box;
+}
+.inp3 {
+  width: 100%;
+  height: 60px;
+}
+.subtn {
+  width: 100px;
+  height: 30px;
+  background-color: blue;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  display: block;
+  margin: 20px auto;
+}
+.imgthum img, .imgpre img {
+  width: 100%;
+  max-width: 300px;
+  margin: 4px auto;
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .prodm {
     width: 100%;
-    height: 100%;
+    margin: 10px;
+    padding: 15px;
   }
-  .fthum{
-    width: 400px;
-    margin-top: 20px;
-    margin-left: 60px;
-    /* background-color: blue; */
+  .form-field, .forms-field, .for, .form1, .fofi {
+    flex-direction: column;
   }
-  .lab5{
-    font-weight: bold;
+  .lab, .lab1, .lab2, .lab3, .lab4, .lab5, .lab6,
+  .inp, .inp1, .inp2, .inp3, .inp4, .inp5, .inp6 {
+    flex: 1 0 100%;
+    margin: 5px 0;
   }
-  .inp5{
-    margin-top: -1px;
-    margin-left: -1px;
-    width: 370px;
+  .subtn {
+    width: 80%;
+    margin: 10px auto;
   }
-  .field2{
-    width: 100%;
-    height: 100%;
+}
+
+@media (max-width: 480px) {
+  .prodm {
+    box-shadow: none;
+    padding: 10px;
   }
-  .fprim{
-    width: 420px;
-    margin-top: -240px;
-    margin-left: 470px;
-    /* background-color: rgb(255, 0, 242); */
+  .inp3 {
+    height: auto;
   }
-  .lab6{
-    font-weight: bold;
+  .subtn {
+    font-size: 14px;
+    padding: 5px;
   }
-  .inp6{
-    margin-top: -1px;
-    margin-left: -1px;
-    width: 390px;
-  }
-  .subtn{
-    width: 100px;
-    height: 30px;
-    background-color: blue;
-    margin-left: 400px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 3px;
-    color: white;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  .imgthum img{
-    width: 300px;
-    margin-top: 4px;
-    margin-left: 30px;
-  }
-  .imgpre img{
-    width: 300px;
-   margin-top: 4px;
-   margin-left: 50px;
-  }
+}

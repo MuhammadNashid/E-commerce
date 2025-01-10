@@ -79,3 +79,9 @@
     margin-left: 500px;
     margin-bottom: 10px;
   }
+  .label{
+    margin-left: 20px;
+  }
+  .address-card p{
+    color: rgb(173, 153, 153);
+  }

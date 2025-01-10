@@ -32,9 +32,11 @@ const Home = ({name}) => {
           {products
           .filter((i)=>i.name?.toLowerCase().includes(name?.toLowerCase() || ""))
           .map((product) => (
-            <Link to={`/products/${product._id}`} key={product._id} className="proit">
+            <Link to={`/details/${product._id}`} key={product._id} className="proit">
               <img src={product.thumbnail} alt={product.name} className="pthu" />
+              <div className="np">
               <span className="nam">{product.name}</span>
+              <span className="price">From ₹{product.price}</span></div>
             </Link>
           ))}
         </div>

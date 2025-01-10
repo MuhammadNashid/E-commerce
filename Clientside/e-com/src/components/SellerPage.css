@@ -3,24 +3,21 @@
     height: 100%;
   }
   .left-section{
-    background-color: rgb(255, 253, 253);
+    background-color: rgb(247, 242, 235);
     width: 400px;
     height: 620px;
     margin-left: 50px;
-    box-shadow: 0 0 2px 2px rgb(197, 196, 196);
+    box-shadow: 0 0 2px 2px rgb(109, 105, 105);
   }
-  .form-field{
+  /* .form-field{
     width: 200px;
+    color: black;
     margin-left: 10px;
     font-weight: bold;
     margin-top: 10px;
-  }
-  .lbl{
-    width: 300px;
-    margin-top: -1px;
-    margin-bottom: 8px;
-    margin-left: 15px;
-  }
+  } */
+
+   
   .addb{
     width: 60px;
     border: none;

@@ -39,6 +39,13 @@ form {
   margin-bottom: 15px;
 }
 
+/* .in1 {
+ 
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 1rem;
+} */
+
 .btn-login1 {
   width: 450px;
   height: 40px;
@@ -104,6 +111,7 @@ form {
 .in1:focus {
   border-bottom: 1px solid #007BFF; /* Change to the color of your choice for focus */
 }
+
 .form-group {
   margin-bottom: 20px;
 }
@@ -135,13 +143,15 @@ body {
   margin-left: 350px;
   margin-top: -200px;
 }
-.img1{
-  margin-top: 100px;
-  margin-left: 15px;
+.login-left img{
+  width: 150px;
+  height: 100px;
+  margin-left: 50px;
+  margin-top: 90px;
 }
 .login-left {
   width: 300px;
-  height: 429px;
+  height: 345px;
   background-color: #2874f0;
   color: white;
   /* display: flex;
