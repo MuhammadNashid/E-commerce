@@ -22,5 +22,6 @@ router.route('/getProducts').get(Auth, rh.getProducts);
 router.route('/getProductsByCategory/:category').get(Auth, rh.getProductsByCategory);
 router.route('/getProduct/:productId').get(Auth, rh.getProductById);
 router.route('/getAllOtherProducts').get(Auth, rh.getAllOtherProducts);
-router.route('/getProduct/:productId').get(Auth, rh.getProductById);
+
+
 export default router

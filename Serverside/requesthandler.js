@@ -1,4 +1,5 @@
 import userSchema from "./model/user.js"
+
 import addressSchema from "./model/address.js"
 import sellerSchema from "./model/seller.js"
 import productSchema from "./model/product.js"
@@ -314,3 +315,6 @@ export async function addProduct(req, res) {
       res.status(500).send({ msg: "Failed to fetch products. Please try again later.", error: error.message });
     }
   }
+
+  //cart page
+  
