@@ -1,17 +1,19 @@
+
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
-import "./PPdetails.css"
+import "./PPdetails.css";
 
 const ProductDetailsPage = () => {
   const { productId } = useParams();
+  const navigate = useNavigate(); // Initialize useNavigate
   const token = localStorage.getItem("token");
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/api/getProduct/${productId}`, {
+        const res = await axios.get(`http://localhost:3006/api/getProduct/${productId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -25,6 +27,11 @@ const ProductDetailsPage = () => {
 
     fetchProductDetails();
   }, [productId, token]);
+
+  const handleAddToCart = () => {
+    console.log("Product added to cart:", product);
+    navigate("/cart"); 
+  };
 
   if (!product) {
     return <p>Loading...</p>;
@@ -57,7 +64,9 @@ const ProductDetailsPage = () => {
           <p className="product-quantity">Available Quantity: {product.quantity}</p>
 
           <div className="button-group">
-            <button className="add-to-cart-button">Add to Cart</button>
+            <button className="add-to-cart-button" onClick={handleAddToCart}>
+              Add to Cart
+            </button>
             <button className="buy-now-button">Buy Now</button>
           </div>
         </div>

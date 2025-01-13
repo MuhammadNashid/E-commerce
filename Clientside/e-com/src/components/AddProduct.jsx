@@ -70,7 +70,7 @@ const AddProduct = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3001/api/addProduct",
+        "http://localhost:3006/api/addProduct",
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -115,14 +115,14 @@ const AddProduct = () => {
             <option value="" disabled>
               Select Category
             </option>
-            <option value="Skin care">Skin care</option>
-            <option value="Haircare">Haircare</option>
-            <option value="Nails">Nails</option>
-            <option value="Fragrance">Fragrance</option>
-            <option value="Moisturizer">Moisturizer</option>
-            <option value="Hair removal">Hair removal</option>
-            <option value="Makeup">Makeup</option>
-            <option value="Foundation">Foundation</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Mobiles">Mobiles</option>
+            <option value="Laptops">Laptops</option>
+            <option value="Watches">Watches</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Speakers" >Speakers</option>
+            <option value="Camera">Camera</option>
+            <option value="Tablets">Tablets</option>
           </select>
         </div>
 

@@ -11,7 +11,7 @@ const Details = () => {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/api/getProduct/${productId}`, {
+        const res = await axios.get(`http://localhost:3006/api/getProduct/${productId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -31,23 +31,23 @@ const Details = () => {
   }
 
   return (
-    <div className="pdetails">
-      <div className="pcontainer">
-        {/* Left Section: Images */}
+    <div className="prod">
+      <div className="produ">
+        
         <Link to={`/products/${product._id}`} key={product._id} className="proit">
-        <div className="img-section">
-          <img src={product.thumbnail} alt={product.name} className="main-img" />
+        <div className="imagese">
+          <img src={product.thumbnail} alt={product.name} className="maiim" />
           <div className="thumbnail-section">
           </div>
         </div></Link>
 
-        {/* Right Section: Product Details */}
-        <div className="dsection">
-          <h3 className="pname">{product.name}</h3>
-          <p className="pcategory">Category: {product.category}</p>
-          <p className="pprice">₹{product.price}</p>
-          <p className="pcategory">{product.description}</p>
-          <p className="pcategory">Available Quantity: {product.quantity}</p>
+       
+        <div className="dsec">
+          <p className="pname">{product.name}</p>
+          <p className="ppric">₹{product.price}</p>
+          <p className="pcat">Category: {product.category}</p>
+          <p className="pcat">Description: {product.description}</p>
+          <p className="pcat">Available Quantity: {product.quantity}</p>
         </div>
       </div>
     </div>

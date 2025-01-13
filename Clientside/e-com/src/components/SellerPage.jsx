@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -117,12 +116,12 @@ const SellerPage = () => {
         {companyDetails ? (
           // If company details exist, show them in read-only mode
           <div>
-            <p><strong>Company Name:</strong> {companyDetails.companyName}</p>
-            <p><strong>Place:</strong> {companyDetails.place}</p>
-            <p><strong>Pincode:</strong> {companyDetails.pincode}</p>
-            <p><strong>District:</strong> {companyDetails.district}</p>
-            <p><strong>State:</strong> {companyDetails.state}</p>
-            <p><strong>Country:</strong> {companyDetails.country}</p>
+            <p className="com"><strong>Company Name:</strong> {companyDetails.companyName}</p>
+            <p className="com"><strong>Place:</strong> {companyDetails.place}</p>
+            <p className="com"><strong>Pincode:</strong> {companyDetails.pincode}</p>
+            <p className="com"><strong>District:</strong> {companyDetails.district}</p>
+            <p className="com"><strong>State:</strong> {companyDetails.state}</p>
+            <p className="com"><strong>Country:</strong> {companyDetails.country}</p>
           </div>
         ) : isAdding ? (
           // When adding a company, show the form with input fields
@@ -135,7 +134,7 @@ const SellerPage = () => {
                 name="companyName"
                 value={formData.companyName}
                 onChange={handleChange}
-                 className="lbls"
+                 className="lbl"
               />
             </div>
             <div className="form-field">
@@ -146,6 +145,7 @@ const SellerPage = () => {
                 name="place"
                 value={formData.place}
                 onChange={handleChange}
+                 className="lbl"
               />
             </div>
             <div className="form-field">
@@ -156,7 +156,7 @@ const SellerPage = () => {
                 name="pincode"
                 value={formData.pincode}
                 onChange={handleChange}
-               
+                className="lbl"
               />
             </div>
             <div className="form-field">
@@ -167,7 +167,7 @@ const SellerPage = () => {
                 name="district"
                 value={formData.district}
                 onChange={handleChange}
-                
+                className="lbl"
               />
             </div>
             <div className="form-field">
@@ -178,19 +178,18 @@ const SellerPage = () => {
                 name="state"
                 value={formData.state}
                 onChange={handleChange}
-                
+                 className="lbl"
               />
             </div>
             <div className="form-field">
               <label htmlFor="country">Country:</label>
               <input
                 type="text"
-                className="count"
                 id="country"
                 name="country"
                 value={formData.country}
                 onChange={handleChange}
-               
+                 className="lbl"
               />
             </div>
             <div className="form-actions">

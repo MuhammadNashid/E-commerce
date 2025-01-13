@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProfileInfo from "./ProfileInfo";
-import Cart from "./Cart";
+// import Cart from "./Cart";
 import WishList from "./WishList";
 import "./Profile.css"
 import logo from "../assets/logout.png"
