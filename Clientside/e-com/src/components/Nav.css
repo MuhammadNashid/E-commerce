@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
@@ -44,7 +44,6 @@ body {
   margin-left: 40px;
 }
 .b1{
-  /* color: rgb(206, 7, 163); */
   color:  #daab10;
   font-size: 20px;
   margin-top: -8px;
@@ -142,11 +141,6 @@ body {
   outline: none;
   padding: 5px;
 }
-
-/* .dropbtn:hover {
-  transform: rotate(180deg);
-} */
-
 .dropdown-content {
   display: none;
   position: absolute;
@@ -183,4 +177,95 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-} 
+}  */
+
+
+/* Make the navbar sticky */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: dodgerblue; /* or any background color of your choice */
+  padding: 10px 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+
+/* Remove underline from logo */
+.navbar .logo  {
+  text-decoration: none;
+  font-weight: bold;
+  color: white; /* You can customize the color */
+}
+
+/* Style for navbar brand */
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+/* Search input styles */
+.search-input {
+  width: 300px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Icons container */
+.nav-icons {
+  display: flex;
+  gap: 20px;
+}
+
+/* Cart icon styles */
+.cart-icon img,
+.wishlist-icon img {
+  width: 25px;
+  height: 25px;
+}
+
+/* Dropdown styles */
+.dropdown-content {
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a,
+.dropdown-content button {
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  background-color: #fff;
+}
+
+.dropdown-content button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Dropdown hover effects */
+.dropdown-content a:hover,
+.dropdown-content button:hover {
+  background-color: #f1f1f1;
+}
+
+/* Styles for login button */
+.log {
+  padding: 8px 20px;
+  background-color: #ff9900;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.log:hover {
+  background-color: #e68900;
+}

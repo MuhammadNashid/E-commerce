@@ -22,24 +22,27 @@ body{
 .maiim{
   border-radius: 4px;
   width: 200px;
-  height: 200px;
+  height: 100px;
   margin-left: 50px;
 }
 .pname{
   color: rgb(17, 17, 19);
-  margin-top: -10px;
+  margin-top: 10px;
   margin-left: 10px;
   font-weight: bold;
 }
 .pcat{
   color: black;
-  margin-top: -10px;
+  margin-top: 8px;
   margin-left: 10px;
   font-size: 15px;
 }
 .ppric{
   color: rgb(6, 90, 6);
-  margin-top: -20px;
+  margin-top: 10px;
   margin-left: 10px;
   font-size: 17px;
+}
+.wishlist-icon{
+  float: right;
 }
