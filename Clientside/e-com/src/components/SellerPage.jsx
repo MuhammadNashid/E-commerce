@@ -22,7 +22,7 @@ const SellerPage = () => {
   useEffect(() => {
     const fetchCompanyDetails = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/api/getCompany", {
+        const res = await axios.get("http://localhost:3006/api/getCompany", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -44,7 +44,7 @@ const SellerPage = () => {
 
     const fetchProductCounts = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/api/getProducts", {
+        const res = await axios.get("http://localhost:3006/api/getProducts", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -80,7 +80,7 @@ const SellerPage = () => {
     try {
       // Add company details
       const res = await axios.post(
-        "http://localhost:3001/api/addCompany",
+        "http://localhost:3006/api/addCompany",
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -116,12 +116,12 @@ const SellerPage = () => {
         {companyDetails ? (
           // If company details exist, show them in read-only mode
           <div>
-            <p className="com"><strong>Company Name:</strong> {companyDetails.companyName}</p>
-            <p className="com"><strong>Place:</strong> {companyDetails.place}</p>
-            <p className="com"><strong>Pincode:</strong> {companyDetails.pincode}</p>
-            <p className="com"><strong>District:</strong> {companyDetails.district}</p>
-            <p className="com"><strong>State:</strong> {companyDetails.state}</p>
-            <p className="com"><strong>Country:</strong> {companyDetails.country}</p>
+            <p><strong>Company Name:</strong> {companyDetails.companyName}</p>
+            <p><strong>Place:</strong> {companyDetails.place}</p>
+            <p><strong>Pincode:</strong> {companyDetails.pincode}</p>
+            <p><strong>District:</strong> {companyDetails.district}</p>
+            <p><strong>State:</strong> {companyDetails.state}</p>
+            <p><strong>Country:</strong> {companyDetails.country}</p>
           </div>
         ) : isAdding ? (
           // When adding a company, show the form with input fields

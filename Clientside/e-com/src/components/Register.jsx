@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./Register.css"
-// import loginimg from "../assets/login.png"
-
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
@@ -11,7 +9,7 @@ const Register = () => {
     username: '',
     email: '',
     phone: '',
-    accType: 'nil',
+    accType: 'buyer',
     pwd: '',
     cpwd: '',
   });
@@ -133,6 +131,9 @@ const Register = () => {
                 onChange={handleChange}
                 required
               >
+                <option value="nil" >
+                  Select Account Type
+                </option>
                 <option value="buyer">Buyer</option>
                 <option value="seller">Seller</option>
               </select>

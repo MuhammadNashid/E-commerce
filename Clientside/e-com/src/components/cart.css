@@ -1,0 +1,224 @@
+.cart-container {
+    height: 530px;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: white;
+  }
+  .hea{
+    text-align: center;
+    margin-top: -20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .cart-left{
+    width: 700px;
+    height: 250px;
+    margin-left: 100px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  .bisection{
+    float: right;
+    width: 400px;
+    height: 214px;
+    margin-top: 25px;
+    margin-right: 100px;
+    margin-left: -30px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid rgb(216, 211, 211);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  .undb{
+    width: 700px;
+    height: 70px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(216, 211, 211);
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 44px;
+    margin-left: -730px;
+  }
+  .pobutton{
+    width: 200px;
+    height: 30px;
+    float: right;
+    border: none;
+    border-radius: 3px;
+    margin-right: 10px;
+    margin-top: 8px;
+    background-color: orangered;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .cart-items-section {
+    width: 65%;
+  }
+  
+  .cart-items-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .cart-item {
+    width: 680px;
+    height: 230px;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #b9b7b7;
+    padding-bottom: 20px;
+  }
+  .image{
+   margin-top: -50px;
+  }
+  .caimage {
+    width: 200px;
+    height: 150px;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+  
+  .cart-item-details h3 {
+    font-size: 1rem;
+    margin-top: -100px;
+    
+  }
+  
+  .cart-item-details p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  
+  }
+  .des{
+    margin-top: -10px;
+  }
+  .pri{
+    color:seagreen;
+    margin-top: 10px;
+  }
+  .quantity-controls {
+   margin-top: 100px;
+   margin-left: -200px;
+    align-items: center;
+  }
+  
+  .quantity-controls button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #2874f0;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .quantity-controls button:hover {
+    background-color: #0b5ed7;
+  }
+  
+  .quantity-controls button:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+  }
+  
+  .quantity-controls span {
+    margin: 0 10px;
+    font-size: 1rem;
+    color: #333;
+  }
+  .de1{
+    margin-top: -25px;
+   
+  }
+  .dbutton {
+    margin-left: 80px;
+    background-color: transparent;
+    border: none;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .dbutton:hover {
+    color: #215dac;
+  }
+  .sbutton {
+    margin-left: -50px;
+    background-color: transparent;
+    border: none;
+    color: #000000;
+    font-weight: bold;
+    padding: 5px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .sbutton:hover {
+    color: #215dac;
+  }
+  /* .bill-section {
+    width: 300px;
+    height: 150px;
+    display: flex;
+    margin-top: 100px;
+     flex-direction: column; 
+    justify-content: space-between; 
+  } */
+  
+  .bisection .h2 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -10px;
+    font-size: 25px;
+    
+  }
+  
+  .bisection p {
+    font-size: 15px;
+    color: #333;
+  }
+  .spa{
+    float: right;
+    color: rgb(56, 53, 53);
+  }
+  .spa1{
+    float: right;
+  }
+  .spa2{
+    float: right;
+    color: seagreen;
+  }
+  .bd{
+    color: rgb(170, 153, 153);
+  }
+  .address-section .h3 {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+    color: #0b5ed7;
+  }
+  
+  
+  .address-option input {
+    width: 10px;
+    height: 10px;
+    margin-top: -110px;
+    margin-left: 10px;
+   text-align: center;
+  }
+  
+  .address-option label {
+    text-align: center;
+    color: #333;
+  }
