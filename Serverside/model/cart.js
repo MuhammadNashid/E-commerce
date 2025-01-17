@@ -1,10 +1,8 @@
 import mongoose from "mongoose"
-const productSchema = new mongoose.Schema({
-    BuyerID: { type: String },
-    name: { type: String },
-    price: { type: String },
-    quantity: { type: String },
-    thumbnail: { type: String },
+const cartSchema = new mongoose.Schema({
+    buyerID: { type: String },
+    productID: { type: String },
+    quantity: { type: Number },
 })
 
 export default mongoose.model.cart||mongoose.model('cart',cartSchema)

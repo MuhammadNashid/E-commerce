@@ -20,8 +20,18 @@ router.route('/addProduct').post(Auth, rh.addProduct);
 router.route('/editCompany').post(Auth, rh.editCompany);
 router.route('/getProducts').get(Auth, rh.getProducts);
 router.route('/getProductsByCategory/:category').get(Auth, rh.getProductsByCategory);
-router.route('/getProduct/:productId').get(Auth, rh.getProductById);
 router.route('/getAllOtherProducts').get(Auth, rh.getAllOtherProducts);
+router.route('/getProduct/:productId').get(Auth, rh.getProductById);
+router.route('/addCart').post(Auth, rh.addCart);
+router.route('/findOnCart/:productId').get(Auth, rh.findOnCart);
+router.route('/getCart').get(Auth, rh.getCart);
+router.route('/deleteCartItem/:productId').delete(Auth, rh.delCartItem);
+router.route('/incrementCartQuantity/:productId').put(Auth, rh.incrementCartQuantity);
+router.route('/decrementCartQuantity/:productId').put(Auth, rh.decrementCartQuantity);
+router.route('/placeOrder').post(Auth, rh.placeOrder);
+router.route('/getBuyerOrder').get(Auth, rh.getBuyerOrder);
+router.route('/getSellerOrders').get(Auth, rh.getSellerOrders);
+router.route('/confirmOrder/:productId').put(Auth, rh.confirmOrder);
 
 
 export default router

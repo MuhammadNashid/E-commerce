@@ -1,13 +1,23 @@
 import userSchema from "./model/user.js"
-
+import cartSchema from "./model/cart.js"
+import sellerOrderSchema from "./model/sellero.js"
+import buyerOrderSchema from './model/buyer.js'
 import addressSchema from "./model/address.js"
 import sellerSchema from "./model/seller.js"
 import productSchema from "./model/product.js"
 import { validationResult } from "express-validator";
+import nodemailer from "nodemailer";
 import bcrypt from 'bcrypt'
 import pkg from "jsonwebtoken"
 const { sign } = pkg
 
+const transporter = nodemailer.createTransport({
+  service:"gmail",
+  auth: {
+  user:"muhammadnashid905@gmail.com",
+  pass:"zudt nnnf bhlc qpoh"
+}
+})
 
 
 export async function addUser(req, res) {
@@ -317,4 +327,296 @@ export async function addProduct(req, res) {
   }
 
   //cart page
+  export async function addCart(req, res) {
+    try {
+      const { productID } = req.body;
+      const cart = await cartSchema.create({
+        productID,
+        buyerID: req.user.UserID,
+        quantity: "1",
+      });
+      return res
+        .status(201)
+        .json({ message: "Added to Cart successfully!", cart });
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      res
+        .status(500)
+        .send({
+          msg: "Failed to fetch products. Please try again later.",
+          error: error.message,
+        });
+    }
+  }
+  
+  export async function findOnCart(req, res) {
+    try {
+      const cart = await cartSchema.findOne({
+        productID: req.params.productId,
+        buyerID: req.user.UserID,
+      });
+      return res.status(201).json({ cart });
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      res
+        .status(500)
+        .send({
+          msg: "Failed to fetch products. Please try again later.",
+          error: error.message,
+        });
+    }
+  }
+  
+  
+  export async function getCart(req, res) {
+    try {
+      const cartItems = await cartSchema.find({ buyerID: req.user.UserID });
+      if (!cartItems || cartItems.length === 0) {
+        return res.status(404).json({ message: "No items found in the cart." });
+      }
+  
+      const cartDetails = await Promise.all(
+        cartItems.map(async (item) => {
+          const product = await productSchema.findById(item.productID);
+          if (product) {
+            return {
+              productID: product._id,
+              sellerID: product.sellerID,
+              name: product.name,
+              price: product.price,
+              description: product.description,
+              thumbnail: product.thumbnail,
+              quantity: item.quantity,
+            };
+          }
+          return null;
+        })
+      );
+      // const filteredCartDetails = cartDetails.filter((item) => item !== null);
+  
+      return res.status(200).json({ cartItems: cartDetails });
+    } catch (error) {
+      console.error("Error fetching cart items:", error);
+      res
+        .status(404)
+        .send({
+          msg: "Failed to fetch cart items. Please try again later.",
+          error: error.message,
+        });
+    }
+  }
+  
+  
+  
+  export async function delCartItem(req, res) {
+    try {
+      const cartItem = await cartSchema.findOneAndDelete({buyerID: req.user.UserID, productID: req.params.productId});
+        if (!cartItem) {
+          return res.status(404).json({ message: "Item not found in the cart." });
+          }
+          return res.status(200).json({ message: "Item deleted from cart." });
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      res
+        .status(500)
+        .send({
+          msg: "Failed to fetch products. Please try again later.",
+          error: error.message,
+        });
+    }
+  }
+  
+  
+  export async function placeOrder(req, res) {
+    try {
+      const {cartItems, address}=req.body
+      
+      cartItems.map(async (item) => {
+        const emailData=await userSchema.findOne({_id:item.sellerID})
+        const buyerData=await userSchema.findOne({_id:req.user.UserID})
+        await sellerOrderSchema.create({sellerID:item.sellerID, buyerID:req.user.UserID, productID:item.productID, quantity:item.quantity, address:address, confirm: false})
+        await buyerOrderSchema.create({buyerID:req.user.UserID, productID:item.productID, quantity:item.quantity, confirm: false})
+        const updateResult = await productSchema.updateOne({ _id: item.productID },{ $inc: { quantity: -item.quantity } }
+        );
+  
+        const info = await transporter.sendMail({
+          from: "Ecommerce@gmail.com",
+          to: emailData.email,
+          subject: "New Order Received",
+          text: "You have a new order!",
+          html: `
+            <div class="page" style="width: 500px; height: auto; padding: 20px; 
+            display: flex; align-items: center; justify-content: center; flex-direction: column;
+            background-color: gainsboro; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+              <h2>New Order Notification</h2>
+              <p style="font-size: 16px;">You have received a new order. Please review the order details below.</p>
+              
+              <h3 style="margin: 10px 0;">Buyer Details:</h3>
+              <p style="font-size: 14px;"><strong>Name:</strong> ${buyerData.username}</p>
+              <p style="font-size: 14px;"><strong>Email:</strong> ${buyerData.email}</p>
+              <p style="font-size: 14px;"><strong>Address:</strong> ${address}</p>
+        
+              <p style="font-size: 14px;">If you have any questions, feel free to contact us.</p>
+            </div>`,
+        });
+        console.log("Message sent: %s", emailData.email);
+      })
+      const del =await cartSchema.deleteMany({_id:req.user.UserID})
+      return res.status(200).json({ message: "Order Recieved" });
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      res
+        .status(500)
+        .send({
+          msg: "Failed to fetch products. Please try again later.",
+          error: error.message,
+        });
+    }
+  }
+  
+  
+  export async function incrementCartQuantity(req, res) {
+    try {
+      const cartItem = await cartSchema.updateOne({ buyerID: req.user.UserID, productID: req.params.productId },{ $inc: { quantity: 1 } });
+        if (!cartItem) {
+          return res.status(404).json({ message: "Item not found in the cart." });
+          }
+          return res.status(200).json({ message: "Quantity Increased" });
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      res
+        .status(500)
+        .send({
+          msg: "Failed to fetch products. Please try again later.",
+          error: error.message,
+        });
+    }
+  }
+  
+  
+  export async function decrementCartQuantity(req, res) {
+    try {
+      const cartItem = await cartSchema.updateOne({ buyerID: req.user.UserID, productID: req.params.productId, quantity: { $gt: 1 } },{ $inc: { quantity: -1 } }
+      );
+        if (!cartItem) {
+          return res.status(404).json({ message: "Item not found in the cart." });
+        }
+        return res.status(200).json({ message: "Quantity decreased" });
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      res
+        .status(500)
+        .send({
+          msg: "Failed to fetch products. Please try again later.",
+          error: error.message,
+        });
+    }
+  }
+  
+  
+  
+  export async function getBuyerOrder(req, res) {
+    try {
+      const order = await buyerOrderSchema.find({ buyerID: req.user.UserID });
+      
+      const detailedOrders = await Promise.all(
+        order.map(async (item) => {
+          const product = await productSchema.findOne({_id:item.productID});
+          return {
+            name: product.name,
+            quantity: item.quantity,
+            price: product.price,
+            confirm: item.confirm,
+            thumbnail:product.thumbnail,
+          };
+        })
+      );
+      res.status(200).json(detailedOrders);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      res.status(500).send({msg: "Failed to fetch products. Please try again later.",error: error.message,});
+    }
+  }
+  
+  
+  export async function getSellerOrders(req, res) {
+    try {
+      const order = await sellerOrderSchema.find({ sellerID: req.user.UserID });
+      
+      const detailedOrders = await Promise.all(
+        order.map(async (item) => {
+          const product = await productSchema.findOne({_id:item.productID});
+          const buyer=await userSchema.findOne({_id:item.buyerID})
+          
+          return {
+            buyername: buyer.username,
+            address:item.address,
+            productname: product.name,
+            productID:item.productID,
+            quantity: item.quantity,
+            confirm: item.confirm,
+          };
+        })
+      );
+      res.status(200).json(detailedOrders);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      res.status(500).send({msg: "Failed to fetch products. Please try again later.",error: error.message,});
+    }
+  }
+  
+  
+  
+  export async function confirmOrder(req, res) {
+    try {
+      const found = await sellerOrderSchema.findOne({sellerID: req.user.UserID,productID: req.params.productId});
+      if (!found) {
+        return res.status(404).json({ msg: "Order not found" });
+      }
+  
+      await buyerOrderSchema.updateOne({ buyerID: found.buyerID, productID: req.params.productId },{ $set: { confirm: true } });
+      await sellerOrderSchema.updateOne({ sellerID: req.user.UserID, productID: req.params.productId },{ $set: { confirm: true } });
+  
+      const product=await productSchema.findOne({_id:req.params.productId})
+      
+      const emailData= await userSchema.findOne({_id:found.buyerID})
+      
+  
+      const info = await transporter.sendMail({
+        from: "Ecommerce@gmail.com",
+        to: emailData.email,
+        subject: "Order Confirmed",
+        text: "Your order has been confirmed!",
+        html: `
+          <div class="page" style="width: 500px; height: auto; padding: 20px; 
+          display: flex; align-items: center; justify-content: center; flex-direction: column;
+          background-color: #f0f8ff; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+            <h2 style="color: #2c3e50;">Order Confirmation</h2>
+            <p style="font-size: 16px; color: #34495e;">Congratulations! Your order has been successfully confirmed. Please review the order details below.</p>
+            
+            <h3 style="margin: 10px 0; color: #2980b9;">Product Details:</h3>
+            <p style="font-size: 14px; color: #34495e;"><strong>Name:</strong> ${product.name}</p>
+            <p style="font-size: 14px; color: #34495e;"><strong>Description:</strong> ${product.description}</p>
+            <p style="font-size: 14px; color: #34495e;"><strong>Quantity:</strong> ${found.quantity}</p>
+            <p style="font-size: 14px; color: #34495e;"><strong>Price:</strong> ₹${product.price * found.quantity}</p>
+          
+            <h3 style="margin: 20px 0 10px; color: #2980b9;">Order Summary:</h3>
+            <p style="font-size: 14px; color: #34495e;"><strong>Order Status:</strong> Confirmed</p>
+            <p style="font-size: 14px; color: #34495e;">We are processing your order and will notify you once it's shipped.</p>
+            
+            <p style="font-size: 14px; color: #34495e;">If you have any questions, feel free to contact us.</p>
+          </div>`,
+      });
+      console.log("Order confirmation message sent to:", emailData.email);
+  
+      res.status(200).json({ msg: "Order confirmed successfully" });
+    } catch (error) {
+      console.error("Error confirming order:", error);
+      res.status(500).send({
+        msg: "Failed to confirm the order. Please try again later.",
+        error: error.message,
+      });
+    }
+  }
+  
   
