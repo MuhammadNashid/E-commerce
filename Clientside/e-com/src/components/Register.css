@@ -1,7 +1,7 @@
 /* Container for the entire register page */
 .register-page {
   display: flex;
-  height: 100vh; /* Full height of the viewport */
+  height: 100vh; 
   justify-content: center;
   align-items: center;
   width: 100%;

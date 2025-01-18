@@ -71,13 +71,13 @@ const Login = () => {
               />
             </div>
             <div className="form-group">
-              <input
-                className="in1"
-                type="pwd"
-                name="pass"
-                value={formData.pass}
+            <input
+                className="in2"
+                type="password"
+                name="pwd"
+                value={formData.pwd}
                 onChange={handleChange}
-                placeholder="Enter your password"
+                placeholder="password"
                 required
               />
              </div>
