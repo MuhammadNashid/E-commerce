@@ -1,71 +1,3 @@
-/* .profile-page{
-    width: 100%;
-    height: 100%;
-  }
-  .profile-sidebar{
-    width: 300px;
-    height: 500px;
-    margin-left: 20px;
-    box-shadow: 0 0 2px 2px gray;
-    background-color: white;
-  }
-  .pro1{
-    width: 90px;
-    height: 30px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    background-color: dodgerblue;
-    color: white;
-    font-weight: bold;
-  text-align: center;
-  margin-left: 10px;
-  margin-right: 3px;
-  }
-  .car1{
-    width: 90px;
-    height: 30px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    background-color: dodgerblue;
-    color: white;
-    font-weight: bold;
-  text-align: center;
-  margin-right: 3px;
-  }
-  .wi1{
-    width: 90px;
-    height: 30px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    background-color: dodgerblue;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-  }
-  .acc{
-    color: blue;
-    margin-left: 70px;
-    margin-bottom: 20px;
-  }
-  .lou{
-    width: 90px;
-    height: 30px;
-    cursor: pointer;  
-    color: dodgerblue;
-    font-weight: bold;
-    text-align: center;
-    float: left;
-    margin-top: 390px;
-  }
-  .img1{
-    width: 20px;
-    height: 20px;
-    float: left;
-    margin-top: -3px;
-  } */
 
   .profile-page{
     width: 100%;
@@ -86,9 +18,9 @@
     background-color: seagreen;
     color: white;
     font-weight: bold;
-  text-align: center;
-  margin-left: 10px;
-  margin-right: 3px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 3px;
   }
   .car1{
     width: 90px;
@@ -99,8 +31,8 @@
     background-color: seagreen;
     color: white;
     font-weight: bold;
-  text-align: center;
-  margin-right: 3px;
+    text-align: center;
+    margin-right: 3px;
   }
   .wi1{
     width: 90px;
@@ -111,6 +43,19 @@
     background-color: seagreen;
     color: white;
     font-weight: bold;
+    text-align: center;
+  }
+  .wil1{
+    width: 90px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: seagreen;
+    color: white;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-left: 10px;
   text-align: center;
   }
   .acc{
@@ -128,6 +73,7 @@
     color: white;
     font-weight: bold;
   text-align: center;
-  margin-top: 360px;
-  margin-left: 70px;
+  margin-top: 340px;
+  margin-left: 90px;
   }
+
