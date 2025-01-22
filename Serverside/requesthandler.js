@@ -1,6 +1,7 @@
 import userSchema from "./model/user.js"
 import cartSchema from "./model/cart.js"
 import sellerOrderSchema from "./model/sellero.js"
+import wishListSchema from "./model/wishlist.js";
 import buyerOrderSchema from './model/buyer.js'
 import addressSchema from "./model/address.js"
 import sellerSchema from "./model/seller.js"
@@ -368,6 +369,7 @@ export async function addProduct(req, res) {
   }
   
   
+
   export async function getCart(req, res) {
     try {
       const cartItems = await cartSchema.find({ buyerID: req.user.UserID });
@@ -392,7 +394,7 @@ export async function addProduct(req, res) {
           return null;
         })
       );
-      // const filteredCartDetails = cartDetails.filter((item) => item !== null);
+  
   
       return res.status(200).json({ cartItems: cartDetails });
     } catch (error) {
@@ -616,6 +618,74 @@ export async function addProduct(req, res) {
         msg: "Failed to confirm the order. Please try again later.",
         error: error.message,
       });
+    }
+  }
+
+
+  export async function addToWishlist(req, res){
+    const productID = req.params.productId;
+    const buyerID = req.user.UserID
+    try {
+      const exists = await wishListSchema.findOne({ buyerID, productID });
+      if (exists) {
+        return res.status(400).json({ message: "Product is already in wishlist." });
+      }
+  
+      await wishListSchema.create({buyerID,productID})
+      res.status(200).json({ message: "Added to wishlist successfully." });
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+      res.status(500).json({ message: "Internal server error." });
+    }
+  };
+  
+  export async function removeFromWishlist(req, res){
+    const productID = req.params.productId;
+    const buyerID = req.user.UserID
+    try {
+      const result = await wishListSchema.findOneAndDelete({ buyerID, productID });
+      if (!result) {
+        return res.status(404).json({ message: "Product not found in wishlist." });
+      }
+  
+      res.status(200).json({ message: "Removed from wishlist successfully." });
+    } catch (error) {
+      console.error("Error removing from wishlist:", error);
+      res.status(500).json({ message: "Internal server error." });
+    }
+  };
+  
+  
+  export async function checkWishlist(req, res){
+    const productID = req.params.productId;
+    const buyerID = req.user.UserID
+    try {
+      const exists = await wishListSchema.findOne({ buyerID, productID });
+      res.status(200).json({ isFavorite: !!exists });
+    } catch (error) {
+      console.error("Error checking wishlist:", error);
+      res.status(500).json({ message: "Internal server error." });
+    }
+  };
+  
+  
+  export async function getWishList(req, res) {
+    try {
+      const exists = await wishListSchema.find({ buyerID: req.user.UserID });
+  
+      const wishList = await Promise.all(exists.map(async (item) => {
+        const product = await productSchema.findById(item.productID);
+        return {
+          productId:item.productID,
+          name: product.name, 
+          thumbnail: product.thumbnail, 
+          price: product.price,
+        };
+      }));
+      res.status(200).json(wishList);
+    } catch (error) {
+      console.error("Error checking wishlist:", error);
+      res.status(500).json({ message: "Internal server error." });
     }
   }
   

@@ -32,6 +32,10 @@ router.route('/placeOrder').post(Auth, rh.placeOrder);
 router.route('/getBuyerOrder').get(Auth, rh.getBuyerOrder);
 router.route('/getSellerOrders').get(Auth, rh.getSellerOrders);
 router.route('/confirmOrder/:productId').put(Auth, rh.confirmOrder);
+router.route('/checkWishlist/:productId').get(Auth, rh.checkWishlist);
+router.route('/getWishList').get(Auth, rh.getWishList);
+router.route('/addToWishlist/:productId').post(Auth, rh.addToWishlist);
+router.route('/removeFromWishlist/:productId').post(Auth, rh.removeFromWishlist);
 
 
 export default router
