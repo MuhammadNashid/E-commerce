@@ -12,7 +12,7 @@ const SellerOrder = () => {
     const fetchOrders = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:3006/api/getSellerOrders", {
+        const response = await axios.get("http://localhost:3000/api/getSellerOrders", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrders(response.data);
@@ -30,7 +30,7 @@ const SellerOrder = () => {
     
     try {
       const res = await axios.put(
-        `http://localhost:3006/api/confirmOrder/${productId}`,
+        `http://localhost:3000/api/confirmOrder/${productId}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

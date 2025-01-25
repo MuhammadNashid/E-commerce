@@ -1,0 +1,43 @@
+.order-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .tick-icon {
+    font-size: 50px; /* Size of the tick mark */
+    color: green; /* Color of the checkmark */
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    color: #2d2d2d;
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  p {
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

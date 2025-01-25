@@ -16,7 +16,7 @@ const Cart = () => {
     useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const res = await axios.get("http://localhost:3006/api/getCart", {
+        const res = await axios.get("http://localhost:3000/api/getCart", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -50,7 +50,7 @@ const Cart = () => {
   useEffect(() => {
     const fetchAddresses = async () => {
       try {
-        const res = await axios.get("http://localhost:3006/api/getUserAddresses", {
+        const res = await axios.get("http://localhost:3000/api/getUserAddresses", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -68,7 +68,7 @@ const Cart = () => {
 
   const incrementQuantity = async (productId) => {
     try {
-      const res = await axios.put(`http://localhost:3006/api/incrementCartQuantity/${productId}`,{},
+      const res = await axios.put(`http://localhost:3000/api/incrementCartQuantity/${productId}`,{},
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -89,7 +89,7 @@ const Cart = () => {
   const decrementQuantity = async (productId) => {
     try {
       const res = await axios.put(
-        `http://localhost:3006/api/decrementCartQuantity/${productId}`,{},
+        `http://localhost:3000/api/decrementCartQuantity/${productId}`,{},
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -110,7 +110,7 @@ const Cart = () => {
 
   const deleteItem = async (productId) => {
     try {
-      const res = await axios.delete(`http://localhost:3006/api/deleteCartItem/${productId}`, {
+      const res = await axios.delete(`http://localhost:3000/api/deleteCartItem/${productId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -137,7 +137,7 @@ const Cart = () => {
     };
   
     try {
-      const res = await axios.post("http://localhost:3006/api/placeOrder", orderData, {
+      const res = await axios.post("http://localhost:3000/api/placeOrder", orderData, {
         headers: { Authorization: `Bearer ${token}` },
       });
   
@@ -145,12 +145,15 @@ const Cart = () => {
         alert("Order placed successfully!");
         setCartItems([]);
         setSelectedAddress(null);
+        // Navigate to the success page
+        navigate("/success"); // This will route to the OrderSuccess component
       }
     } catch (err) {
       console.error("Error placing order:", err);
       setError("Failed to place the order. Please try again.");
     }
   };
+  
 
   if (loading) {
     return <div className="cart-content">Loading your cart...</div>;
@@ -195,8 +198,7 @@ const Cart = () => {
                   <button
                     className="sbutton">
                     Save For Later
-                  </button></div>
-                 <div className="de1">
+                  </button>
                   <button
                     className="dbutton"
                     onClick={() => deleteItem(item.productID)}
@@ -247,6 +249,7 @@ const Cart = () => {
                 <input
                   type="radio"
                   name="address"
+                  className="dw"
                   value={index}
                   onChange={() => setSelectedAddress(address)}
                 />

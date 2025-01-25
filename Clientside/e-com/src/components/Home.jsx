@@ -10,7 +10,7 @@ const Home = ({name}) => {
   useEffect(() => {
     const fetchAllOtherProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:3006/api/getAllOtherProducts", {
+        const res = await axios.get("http://localhost:3000/api/getAllOtherProducts", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

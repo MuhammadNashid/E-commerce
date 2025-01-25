@@ -27,7 +27,7 @@ const ProfileInfo = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const res = await axios.get("http://localhost:3006/api/getuserData", {
+        const res = await axios.get("http://localhost:3000/api/getuserData", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.status === 200) {
@@ -51,7 +51,7 @@ const ProfileInfo = () => {
   useEffect(() => {
     const fetchUserAddresses = async () => {
       try {
-        const res = await axios.get("http://localhost:3006/api/getUserAddresses", {
+        const res = await axios.get("http://localhost:3000/api/getUserAddresses", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.status === 200) {
@@ -82,7 +82,7 @@ const ProfileInfo = () => {
   const handleSave = async () => {
     try {
       const res = await axios.put(
-        "http://localhost:3006/api/updateUser",
+        "http://localhost:3000/api/updateUser",
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -99,7 +99,7 @@ const ProfileInfo = () => {
   const handleAddAddress = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:3006/api/addAddress",
+        "http://localhost:3000/api/addAddress",
         address,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -141,7 +141,7 @@ const ProfileInfo = () => {
         </div>
         {!isEditing ? (
           <button className="edit-btn1" onClick={() => setIsEditing(true)}>
-            Edit Profile
+            Edit
           </button>
         ) : (
           <div className="action-buttons">

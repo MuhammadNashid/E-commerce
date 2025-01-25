@@ -13,7 +13,7 @@ const CategoryPage = () => {
   useEffect(() => {
     const fetchProductsByCategory = async () => {
       try {
-        const res = await axios.get(`http://localhost:3006/api/getProductsByCategory/${category}`, {
+        const res = await axios.get(`http://localhost:3000/api/getProductsByCategory/${category}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

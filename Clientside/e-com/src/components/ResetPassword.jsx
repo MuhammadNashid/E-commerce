@@ -29,7 +29,7 @@ const ResetPassword = () => {
     try {
         let pass=password
         let cpass=confirmPassword
-      const res = await axios.put("http://localhost:3006/api/updatePassword", {
+      const res = await axios.put("http://localhost:3000/api/updatePassword", {
           pass,
           cpass,
           email,

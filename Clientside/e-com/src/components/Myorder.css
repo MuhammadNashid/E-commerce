@@ -17,6 +17,21 @@
     font-size: 1.2rem;
     color: #666;
   }
+  .success {
+    color: green;
+  }
+  
+  .pending {
+    color: orange;
+  }
+  
+  .errorText {
+    color: red;
+  }
+  
+  .centerText {
+    text-align: center;
+  }
   
   .errorText {
     color: #ff4d4d;

@@ -13,7 +13,7 @@ const ProductDetailsPage = () => {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const res = await axios.get(`http://localhost:3006/api/getProduct/${productId}`, {
+        const res = await axios.get(`http://localhost:3000/api/getProduct/${productId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -28,7 +28,7 @@ const ProductDetailsPage = () => {
   
     const checkProductInCart = async () => {
       try {
-        const res = await axios.get(`http://localhost:3006/api/findOnCart/${productId}`, {
+        const res = await axios.get(`http://localhost:3000/api/findOnCart/${productId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -46,7 +46,7 @@ const ProductDetailsPage = () => {
 
   const handleAddToCart = async () => {
     try {
-      const res = await axios.post(`http://localhost:3006/api/addCart`,
+      const res = await axios.post(`http://localhost:3000/api/addCart`,
         {
           productID: productId,
         },

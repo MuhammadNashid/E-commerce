@@ -64,17 +64,19 @@
  margin-top: -550px;
 }
 
-.addpr{
+.addproductbtn1{
   background: #2874f0;
   color: white;
-  padding: 10px 15px;
+  width: 40px;
+  height: 40px;
+  margin-top: 360px;
   border: none;
   border-radius: 30px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s;
-  margin-left: 400px;
-  margin-bottom: 560px;
+  float: right;
+  margin-right: 10px;
 }
 .seab{
   width: 150px;
@@ -92,7 +94,8 @@
   width: 100;
   flex-wrap: wrap;
   background-color: rgb(235, 230, 230);
-  margin-top: -400px;
+  margin-top: -10px;
+  cursor: pointer;
 }
 .product-box{
   width: 100px;

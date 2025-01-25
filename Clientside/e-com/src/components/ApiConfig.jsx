@@ -1,3 +1,3 @@
-const API = "http://localhost:3006/api";
+const API = "http://localhost:3000/api";
 
 export default API;

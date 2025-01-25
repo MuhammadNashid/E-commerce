@@ -1,6 +1,3 @@
-
-
-
 import React, { useState } from "react";
 import "./Nav.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -49,7 +46,7 @@ const Nav = ({ setName }) => {
         </div>
 
         <div className="wishlist-icon">
-          <Link to="Wishlist">
+          <Link to="WishList">
             <img className="wishlist" src={wishlistimg} alt="wishlist" />
           </Link>
         </div>

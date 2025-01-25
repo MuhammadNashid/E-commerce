@@ -10,7 +10,7 @@ const Wishlist = () => {
   useEffect(() => {
     const fetchWishlist = async () => {
       try {
-        const res = await axios.get("http://localhost:3006/api/getWishList", {
+        const res = await axios.get("http://localhost:3000/api/getWishList", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setWishlistItems(res.data); 
@@ -24,11 +24,11 @@ const Wishlist = () => {
 
   return (
     <div className="wishlist-content">
-      <h2>Your Wishlist</h2>
+      <h2 className="yw">Your Wishlist</h2>
       {wishlistItems.length > 0 ? (
         <div className="wishlist-grid">
           {wishlistItems.map((item) => (
-            <Link to={`/products/${item.productId}`} className="wishlist-item" key={item.productId}>
+            <Link to={`/details/${item.productId}`} className="wishlist-item" key={item.productId}>
               <img src={item.thumbnail} alt={item.name} className="thumbnail" /> 
               <h3 className="name">{item.name}</h3> 
               <p className="price">{item.price}</p> 
@@ -43,6 +43,4 @@ const Wishlist = () => {
 };
 
 export default Wishlist;
-
-
 
