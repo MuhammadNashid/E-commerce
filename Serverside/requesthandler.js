@@ -44,17 +44,50 @@ export async function addUser(req, res) {
 }
 
 
+// export async function login(req, res) { 
+//     const { email, pass } = req.body
+//     if (!(email && pass))
+//       return res.status(500).send({ msg: "fields are empty" })
+//     const user = await userSchema.findOne({ email })
+//     if (!user) return res.status(500).send({ msg: "email donot exist" })
+//     const success = await bcrypt.compare(pass, user.pass)
+//     if (success !== true)
+//       return res.status(500).send({ msg: "email or password not exist" })
+//     const token = await sign({ UserID: user._id }, process.env.JWT_KEY, {expiresIn: "24h",})
+//     res.status(201).send({ token })
+// }
 export async function login(req, res) { 
-    const { email, pass } = req.body
-    if (!(email && pass))
-      return res.status(500).send({ msg: "fields are empty" })
-    const user = await userSchema.findOne({ email })
-    if (!user) return res.status(500).send({ msg: "email donot exist" })
-    const success = await bcrypt.compare(pass, user.pass)
-    if (success !== true)
-      return res.status(500).send({ msg: "email or password not exist" })
-    const token = await sign({ UserID: user._id }, process.env.JWT_KEY, {expiresIn: "24h",})
-    res.status(201).send({ token })
+  const { email, pass } = req.body;
+
+  // Check if fields are empty
+  if (!(email && pass)) {
+    return res.status(500).send({ msg: "Fields are empty" });
+  }
+
+  // Find user by email
+  const user = await userSchema.findOne({ email });
+  if (!user) {
+    return res.status(500).send({ msg: "Email does not exist" });
+  }
+
+  // Compare password
+  const success = await bcrypt.compare(pass, user.pass);
+  if (success !== true) {
+    return res.status(500).send({ msg: "Email or password is incorrect" });
+  }
+
+  // Generate JWT token
+  const token = await sign(
+    { UserID: user._id },
+    process.env.JWT_KEY,
+    { expiresIn: "24h" }
+  );
+
+  // Send response with token and acctype
+  res.status(201).send({
+    token, // Authentication token
+    accType: user.accType // User account type (e.g., 'buyer' or 'seller')
+  });
 }
 
 export async function verifyEmail(req, res) {
