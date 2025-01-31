@@ -77,7 +77,10 @@
     margin-left: 8px;
     
   }
-  
+  .category-button{
+    gap: 10px;
+    margin-left: 10px;
+  }
   .nam {
     margin-left: 20px;
     text-decoration: none;

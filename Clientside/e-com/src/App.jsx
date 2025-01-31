@@ -3,7 +3,7 @@ import Home from "./components/Home"
 import Login from "./components/Login"
 import Nav from './components/Nav'
 import Register from "./components/Register"
-import VerifyEmail from "./components/VerifyEmail"
+import Verify from "./components/Verify"
 import Profile from "./components/Profile"
 import SellerPage from "./components/SellerPage"
 import AddProduct from "./components/AddProduct"
@@ -28,7 +28,7 @@ function App() {
       <Route path="/" element={<Home name={name}/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
-        <Route path="/verifyEmail" element={<VerifyEmail/>}></Route>
+        <Route path="/verify" element={<Verify/>}></Route>
         <Route path="/profile" element={<Profile/>}></Route>
         <Route path="/sellerPage" element={<SellerPage/>}></Route>
         <Route path="/addProduct" element={<AddProduct/>}></Route>

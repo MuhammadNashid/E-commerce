@@ -1,94 +1,82 @@
-/* Container for the entire register page */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Register page styles */
 .register-page {
   display: flex;
-  height: 100vh; 
+  height: 700px; 
   justify-content: center;
   align-items: center;
   width: 100%;
-  
 }
 
-/* Register container holding the header and form */
 .register-container {
   display: flex; 
+  background-color: #fcfdff;
   width: 100%;
-  height: 100%;
+  height: 700px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
-  margin-top: 100px;
- 
 }
-.h1s{
+
+.h1s {
   margin-left: 80px;
   margin-top: 30px;
   color: white;
 }
 
-.in2 {
+/* Input styles */
+.in2, select {
   width: 100%;
   padding: 10px;
   font-size: 1rem;
   border: none;
   outline: none;
-  border-bottom: 2px solid #ccc; /* Bottom border */
+  border-bottom: 2px solid #ccc; 
   transition: border-color 0.3s ease;
 }
 
-.in2:focus {
-  border-bottom-color: #0066cc; /* Change bottom border color on focus */
+.in2:focus, select:focus {
+  border-bottom-color: #0066cc; 
 }
 
-select {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: none;
-  outline: none;
-  border-bottom: 2px solid #ccc;
-  transition: border-color 0.3s ease;
-}
-
-select:focus {
-  border-bottom-color: #0066cc;
-}
-
-/* Left side for heading - making it larger */
-.left-sider{
-width: 300px;
-height: 600px;
-margin-top: 70px;
-margin-left: 200px;
-background-color: rgb(44, 127, 204);
-border-radius: 2px;
-color: white;
-box-shadow: 0 0 2px 2px rgb(230, 227, 227);
-}
-
-/* Right side for form - making it smaller */
-.right-sider{
-  width: 600px;
-  height: 600px;
-  background-color: #fcfdff;
+/* Side components */
+.left-sider {
+  width: 300px;
+  height: 500px;
+  margin-top: 30px;
+  margin-left: 200px;
+  background-color: rgb(44, 127, 204);
   border-radius: 2px;
-  margin-top: 70px;
+  color: white;
   box-shadow: 0 0 2px 2px rgb(230, 227, 227);
 }
 
-
-/* .forms-group {
-  margin-bottom: 15px;
-  width: 100%;
-} */
-.forms-group{
-width: 500px;
+.right-sider {
+  width: 600px;
+  height: 500px;
+  background-color: #fcfdff;
+  border-radius: 2px;
+  margin-top: 30px;
+  box-shadow: 0 0 2px 2px rgb(230, 227, 227);
 }
+
+/* Forms Group */
+.forms-group {
+  width: 500px;
+}
+
+/* Inputs and selects */
 input,
 select {
   width: 500px;
   padding: 12px;
- margin-left: 30px;
- margin-top: 25px;
+  margin-left: 30px;
+  margin-top: 25px;
   border: 1px solid #ffffff;
   border-radius: 5px;
   font-size: 14px;
@@ -99,10 +87,11 @@ input[type="password"] {
   border: 1px solid rgb(184, 178, 178);
 }
 
+/* Submit Button */
 button.btn-submit {
   width: 500px;
   padding: 12px;
-  background-color: #fb641b; /* Blue color for the button */
+  background-color: #fb641b; 
   color: white;
   font-weight: bold;
   font-size: 16px;
@@ -112,25 +101,107 @@ button.btn-submit {
   margin-left: 30px;
 }
 
-/* For the informational texts */
- .con2 {
+/* Other texts */
+.con2 {
   font-size: 12px;
   color: #474444;
   margin-left: 30px;
   margin-top: 20px;
   margin-bottom: 10px;
 }
-p{
-  font-size: 20px;
+
+.sigp {
+  font-size: 15px;
   margin-left: 20px;
   margin-top: 10px;
   color: white;
 }
+
 .le2 {
   color: #3950cf;
   cursor: pointer;
 }
-.img2{
-margin-top: 250px;
-margin-left: 40px;
+
+.img2 {
+  margin-top: 220px;
+  margin-left: 40px;
+}
+
+/* Responsive Design */
+
+/* Tablet / small screen */
+@media (max-width: 768px) {
+  .register-container {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .left-sider {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .right-sider {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .forms-group {
+    width: 100%;
+  }
+
+  input,
+  select,
+  button.btn-submit {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .h1s {
+    margin-left: 0;
+  }
+
+  .img2 {
+    margin-top: 30px;
+    margin-left: 0;
+  }
+}
+
+/* Mobile / very small screens */
+@media (max-width: 480px) {
+  .register-container {
+    margin-top: 10px;
+  }
+
+  .left-sider,
+  .right-sider {
+    width: 100%;
+    height: auto;
+  }
+
+  .forms-group {
+    width: 100%;
+  }
+
+  input,
+  select,
+  button.btn-submit {
+    width: 100%;
+  }
+
+  .h1s {
+    margin-left: 20px;
+    font-size: 1.2rem;
+  }
+
+  .con2,
+  p {
+    font-size: 14px;
+    margin-left: 20px;
+  }
+
+  .img2 {
+    margin-top: 30px;
+    margin-left: 0;
+  }
 }

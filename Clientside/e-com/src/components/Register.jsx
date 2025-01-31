@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./Register.css"
+
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
@@ -16,6 +18,31 @@ const Register = () => {
 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [pwdCriteria, setPwdCriteria] = useState({
+    length: false,
+    uppercase: false,
+    lowercase: false,
+    number: false,
+    specialChar: false,
+  });
+
+  const validatePassword = (password) => {
+    setPwdCriteria({
+      length: password.length >= 8,
+      uppercase: /[A-Z]/.test(password),
+      lowercase: /[a-z]/.test(password),
+      number: /\d/.test(password),
+      specialChar: /[@$!%*?&]/.test(password),
+    });
+
+    return (
+      password.length >= 8 &&
+      /[A-Z]/.test(password) &&
+      /[a-z]/.test(password) &&
+      /\d/.test(password) &&
+      /[@$!%*?&]/.test(password)
+    );
+  };
 
   const handleChange = (e) => {
     setFormData({...formData,[e.target.name]: e.target.value,});
@@ -30,10 +57,18 @@ const Register = () => {
       return;
     }
 
-    if (formData.pwd !== formData.cpwd) {
-      setError('Passwords do not match');
+    if (!validatePassword(formData.pwd)) {
+      setError(
+        "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character."
+      );
       return;
     }
+
+    if (formData.pwd !== formData.cpwd) {
+      setError("Passwords do not match.");
+      return;
+    }
+
 
     try {
       const response = await axios.post('http://localhost:3000/api/adduser', formData);
@@ -56,8 +91,8 @@ const Register = () => {
         {/* Left Side */}
         <div className="left-sider">
             <h1 className="h1s">Sign Up</h1>
-            <p>Sign up with your personal details to get started</p>
-            {/* <img src={loginimg} alt=""  className="img2"/> */}
+            <p className='sigp'>Sign up with your personal details to get started</p>
+            
         </div>
       {error && <p className="error-message">{error}</p>}
       {success && <p className="success-message">{success}</p>}
@@ -111,6 +146,7 @@ const Register = () => {
                 required
               />
             </div>
+
 
             <div className="forms-group">
               <input
