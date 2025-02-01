@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./cate.css"
+import "./cate.css"; // Import the SCSS file
 
 const CategoryPage = () => {
   const { category } = useParams();
@@ -29,8 +29,7 @@ const CategoryPage = () => {
   }, [category, token]);
 
   return (
-    <div className="category-page">
-     
+<div className="category-page">
       {products.length > 0 ? (
         <div className="grid">
            <h2 className="kj">Products</h2>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
- import "./AddProduct.css"
+import "./AddProduct.css"; // Import SCSS file for styling
 import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
@@ -85,34 +85,34 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="addpr-con">
-      <div className="prodm">
-      <h2 className="titl">Add Product</h2>
-      <form onSubmit={handleSubmit} className="product-form">
-        <div className="form-field">
-          <label className="lab" htmlFor="name">Product Name:</label><br />
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="inp"
-          />
-        </div>
+<div className="addpr-con">
+<div className="prodm">
+<h2 className="titl">Add Product</h2>
+<form onSubmit={handleSubmit} className="product-form">
+  <div className="form-field">
+    <label className="lab" htmlFor="name">Product Name:</label><br />
+    <input
+      type="text"
+      id="name"
+      name="name"
+      value={formData.name}
+      onChange={handleChange}
+      required
+      className="inp"
+    />
+  </div>
 
-        <div className="forms-field">
-          <label className="lab1" htmlFor="category">Category:</label><br />
-          <select
-            id="category"
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-            required
-            className="inp1"
-          >
-            <option value="" disabled>
+  <div className="forms-field">
+    <label className="lab1" htmlFor="category">Category:</label><br />
+    <select
+      id="category"
+      name="category"
+      value={formData.category}
+      onChange={handleChange}
+      required
+      className="inp1"
+    >
+       <option value="" disabled>
               Select Category
             </option>
             <option value="Electronics">Electronics</option>
@@ -127,98 +127,97 @@ const AddProduct = () => {
           </select>
         </div>
 
-        <div className="for">
-          <label className="lab2" htmlFor="price">Price (₹):</label><br />
-          <input
-            type="number"
-            id="price"
-            name="price"
-            value={formData.price}
-            onChange={handleChange}
-            required
-            className="inp2"
-          />
-        </div>
-
-        <div className="form1">
-          <label className="lab3" htmlFor="description">Description:</label><br />
-          <textarea
-            id="description"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            required
-            className="inp3"
-          />
-        </div>
-
-        <div className="fofi">
-          <label className="lab4" htmlFor="quantity">Quantity:</label><br />
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            value={formData.quantity}
-            onChange={handleChange}
-            required
-            className="inp4"
-          />
-        </div>
-
-        <div className="field">
-    <div className="fthum">
-          <label className="lab5" htmlFor="thumbnail">Thumbnail Image:</label>
-          <input
-            type="file"
-            id="thumbnail"
-            name="thumbnail"
-            accept="image/*"
-            onChange={handleThumbnailChange}
-            required
-            className="inp5"
-          />
-          {thumbnailPreview && (
-            <div className="imgthum">
-              <img src={thumbnailPreview} alt="Thumbnail Preview" />
-            </div>
-          )}
+  <div className="for">
+    <label className="lab2" htmlFor="price">Price (₹):</label><br />
+    <input
+      type="number"
+      id="price"
+      name="price"
+      value={formData.price}
+      onChange={handleChange}
+      required
+      className="inp2"
+    />
   </div>
-        </div>
 
-        <div className="field">
-          <div className="fprim">
-          <label className="lab6" htmlFor="images">Product Images:</label>
-          <input
-            type="file"
-            id="images"
-            name="images"
-            accept="image/*"
-            multiple
-            onChange={handleImagesChange}
-            required
-            className="inp6"
-          />
-          {imagesPreview.length > 0 && (
-            <div className="imgpre">
-              {imagesPreview.map((img, index) => (
-                <div key={index} className="image-preview">
-                  <img src={img} alt={`Product Preview ${index + 1}`} />
-                </div>
-              ))}
-            </div>
-          )}
-          </div>
-        </div>
+  <div className="form1">
+    <label className="lab3" htmlFor="description">Description:</label><br />
+    <textarea
+      id="description"
+      name="description"
+      value={formData.description}
+      onChange={handleChange}
+      required
+      className="inp3"
+    />
+  </div>
 
-        <div className="actions">
-          <button type="submit" className="subtn">
-            Add Product
-          </button>
-        </div>
-      </form>
+  <div className="fofi">
+    <label className="lab4" htmlFor="quantity">Quantity:</label><br />
+    <input
+      type="number"
+      id="quantity"
+      name="quantity"
+      value={formData.quantity}
+      onChange={handleChange}
+      required
+      className="inp4"
+    />
+  </div>
+
+  <div className="field">
+<div className="fthum">
+    <label className="lab5" htmlFor="thumbnail">Thumbnail Image:</label>
+    <input
+      type="file"
+      id="thumbnail"
+      name="thumbnail"
+      accept="image/*"
+      onChange={handleThumbnailChange}
+      required
+      className="inp5"
+    />
+    {thumbnailPreview && (
+      <div className="imgthum">
+        <img src={thumbnailPreview} alt="Thumbnail Preview" />
       </div>
-    </div>
-  );
-};
+    )}
+</div>
+  </div>
 
+  <div className="field">
+    <div className="fprim">
+    <label className="lab6" htmlFor="images">Product Images:</label>
+    <input
+      type="file"
+      id="images"
+      name="images"
+      accept="image/*"
+      multiple
+      onChange={handleImagesChange}
+      required
+      className="inp6"
+    />
+    {imagesPreview.length > 0 && (
+      <div className="imgpre">
+        {imagesPreview.map((img, index) => (
+          <div key={index} className="image-preview">
+            <img src={img} alt={`Product Preview ${index + 1}`} />
+          </div>
+        ))}
+      </div>
+    )}
+    </div>
+  </div>
+
+  <div className="actions">
+    <button type="submit" className="subtn">
+      Add Product
+    </button>
+  </div>
+</form>
+</div>
+</div>
+);
+};
 export default AddProduct;

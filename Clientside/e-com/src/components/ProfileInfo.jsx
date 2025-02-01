@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./ProfileInfo.css"
+import "./ProfileInfo.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { Flex } from "@chakra-ui/react";
 
 const ProfileInfo = () => {
   const navigate = useNavigate();
@@ -45,13 +45,13 @@ const ProfileInfo = () => {
       }
     };
 
-    fetchUserDetails();
+    if (token) fetchUserDetails();
   }, [token]);
 
   useEffect(() => {
     const fetchUserAddresses = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/getUserAddresses", {
+        const res = await axios.get("http://localhost:3000/api/getuseraddress", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.status === 200) {
@@ -62,7 +62,7 @@ const ProfileInfo = () => {
       }
     };
 
-    fetchUserAddresses();
+    if (token) fetchUserAddresses();
   }, [token]);
 
   const handleChange = (e) => {
@@ -81,15 +81,13 @@ const ProfileInfo = () => {
 
   const handleSave = async () => {
     try {
-      const res = await axios.put(
-        "http://localhost:3000/api/updateUser",
-        formData,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      const res = await axios.put("http://localhost:3000/api/updateUser", formData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       if (res.status === 200) {
         alert("Profile updated successfully!");
         setIsEditing(false);
-        location.reload();
+        setUserDetails((prev) => ({ ...prev, ...formData }));
       }
     } catch (error) {
       console.error("Error updating profile:", error);
@@ -98,11 +96,9 @@ const ProfileInfo = () => {
 
   const handleAddAddress = async () => {
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/addAddress",
-        address,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      const res = await axios.post("http://localhost:3000/api/addAddress", address, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       if (res.status === 201) {
         alert("Address added successfully!");
         setShowAddressFields(false);
@@ -113,18 +109,17 @@ const ProfileInfo = () => {
       console.error("Error adding address:", error);
     }
   };
+
   return (
     <div className="profile-container">
-      <div className="profile-card">
-      {userDetails?.accType === "seller" && (
-          <button className="seller-btn" onClick={() => navigate("/sellerPage")}>
-            Seller Page
-          </button>
-        )}
+    <div className="profile-card">
+    {userDetails?.accType === "seller" && (
+        <button className="seller-btn" onClick={() => navigate("/sellerPage")}>
+          Seller Page
+        </button>
+      )}
+
         <h2 className="profile-title">Profile Details</h2>
-        {/* <button className="seller-btn" onClick={() => navigate("/sellerPage")}>
-            Seller Page
-          </button> */}
         <div className="profile-fields">
           {Object.entries(formData).map(([key, value]) => (
             <div className="profile-field" key={key}>
@@ -155,17 +150,16 @@ const ProfileInfo = () => {
         )}
       </div>
 
-
       <div className="address-container">
-        <div className="address21">
+      <div className="address21">
         <h2 className="address-title">Your Addresses</h2>
         {userAddresses.length > 0 ? (
-          userAddresses.map((address, index) => (
+          userAddresses.map((addr, index) => (
             <div className="address-card" key={index}>
-              <p><strong>City:</strong> {address.city}</p>
-              <p><strong>Pincode:</strong> {address.pincode}</p>
-              <p><strong>District:</strong> {address.district}</p>
-              <p><strong>Country:</strong> {address.country}</p>
+              <p><strong>City:</strong> {addr.city}</p>
+              <p><strong>Pincode:</strong> {addr.pincode}</p>
+              <p><strong>District:</strong> {addr.district}</p>
+              <p><strong>Country:</strong> {addr.country}</p>
             </div>
           ))
         ) : (
@@ -174,29 +168,23 @@ const ProfileInfo = () => {
 
         {!showAddressFields ? (
           <button className="add-address-btn" onClick={() => setShowAddressFields(true)}>
-             +
+            +
           </button>
         ) : (
           <div className="new-address-form">
             {Object.keys(address).map((key) => (
               <div className="profile-field" key={key}>
                 <span className="label">{key.charAt(0).toUpperCase() + key.slice(1)}:</span>
-                <input
-                  type="text"
-                  name={key}
-                  value={address[key]}
-                  onChange={handleAddressChange}
-                />
+                <input type="text" name={key} value={address[key]} onChange={handleAddressChange} />
               </div>
             ))}
-            <button className="save-address" onClick={handleAddAddress}>
-              Save
-            </button>
+            <button className="save-btn" onClick={handleAddAddress}>Save Address</button>
           </div>
         )}
       </div>
       </div>
     </div>
   );
-}; 
+};
+
 export default ProfileInfo;

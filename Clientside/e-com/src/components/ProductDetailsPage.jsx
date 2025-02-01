@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+
 import axios from "axios";
 import "./PPdetails.css";
 
 const ProductDetailsPage = () => {
   const { productId } = useParams();
-  const navigate = useNavigate(); // Use navigate for navigation
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
+
   const [product, setProduct] = useState(null);
   const [isInCart, setIsInCart] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -25,7 +28,6 @@ const ProductDetailsPage = () => {
       }
     };
 
-  
     const checkProductInCart = async () => {
       try {
         const res = await axios.get(`http://localhost:3000/api/findOnCart/${productId}`, {
@@ -40,19 +42,31 @@ const ProductDetailsPage = () => {
       }
     };
 
+    const checkIfFavorite = async () => {
+      try {
+        const res = await axios.get(`http://localhost:3000/api/checkWishlist/${productId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (res.status === 200 && res.data.isFavorite) {
+          setIsFavorite(true);
+        }
+      } catch (error) {
+        console.error("Error checking wishlist:", error);
+      }
+    };
+
     fetchProductDetails();
     checkProductInCart();
+    checkIfFavorite();
   }, [productId, token]);
 
   const handleAddToCart = async () => {
     try {
-      const res = await axios.post(`http://localhost:3000/api/addCart`,
-        {
-          productID: productId,
-        },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
+      const res = await axios.post(
+        `http://localhost:3000/api/addCart`,
+        { productID: productId },
+        { headers: { Authorization: `Bearer ${token}` } }
       );
 
       if (res.status === 201) {
@@ -68,11 +82,9 @@ const ProductDetailsPage = () => {
     return <p>Loading...</p>;
   }
 
-
   return (
     <div className="product-details-page">
       <div className="product-container">
-        {/* Left Section: Images */}
         <div className="image-section">
           <img src={product.thumbnail} alt={product.name} className="main-image" />
           <div className="thumbnail-section">
@@ -87,7 +99,6 @@ const ProductDetailsPage = () => {
           </div>
         </div>
 
-        {/* Right Section: Product Details */}
         <div className="details-section">
           <h2 className="product-name">{product.name}</h2>
           <p className="product-category">Category: {product.category}</p>
@@ -96,8 +107,8 @@ const ProductDetailsPage = () => {
           <p className="product-quantity">Available Quantity: {product.quantity}</p>
 
           <div className="button-group">
-          {isInCart ? (
-              <button className="goto-button" onClick={() => navigate("/cart")}>
+            {isInCart ? (
+              <button className="add-to-cart-button" onClick={() => navigate("/cart")}>
                 Go to Cart
               </button>
             ) : (
@@ -105,7 +116,7 @@ const ProductDetailsPage = () => {
                 Add to Cart
               </button>
             )}
-            <button className="buy-now-button">Buy Now</button>
+            {/* <button className="buy-now-button">Buy Now</button> */}
           </div>
         </div>
       </div>

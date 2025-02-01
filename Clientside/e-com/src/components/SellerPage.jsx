@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./SellerPage.css"
+import "./SellerPage.css";
 
 const SellerPage = () => {
   const navigate = useNavigate();
@@ -21,6 +21,7 @@ const SellerPage = () => {
 
   useEffect(() => {
     const fetchCompanyDetails = async () => {
+      if (token) {
       try {
         const res = await axios.get("http://localhost:3000/api/getCompany", {
           headers: { Authorization: `Bearer ${token}` },
@@ -40,6 +41,9 @@ const SellerPage = () => {
       } catch (error) {
         console.error("Error fetching company details:", error);
       }
+    }else{
+      navigate("/login");
+    }
     };
 
     const fetchProductCounts = async () => {
@@ -78,26 +82,22 @@ const SellerPage = () => {
   // Handle save functionality (adding company)
   const handleSave = async () => {
     try {
-      // Add company details
-      const res = await axios.post(
-        "http://localhost:3000/api/addCompany",
-        formData,
+      const res = await axios.post("http://localhost:3000/api/addCompany", formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
       if (res.status === 201) {
         alert("Company details added successfully!");
         setCompanyDetails(res.data.company);
-        setIsAdding(false); // Hide the form after adding
+        setIsAdding(false);
       }
     } catch (error) {
       console.error("Error saving company details:", error);
     }
   };
 
-  // Handle the click on "Add Company" button
   const handleAddCompany = () => {
-    setIsAdding(true); // Show form to add company details
+    setIsAdding(true);
     setFormData({
       companyName: "",
       place: "",
@@ -112,7 +112,7 @@ const SellerPage = () => {
     <div className="page-container">
       {/* Left Section: Company Details */}
       <div className="left-section">
-        <h2 className="h2c">Company Details</h2>
+        <h2>Company Details</h2>
         {companyDetails ? (
           // If company details exist, show them in read-only mode
           <div>
@@ -127,76 +127,76 @@ const SellerPage = () => {
           // When adding a company, show the form with input fields
           <form className="company-form">
             <div className="form-field">
-              <label  htmlFor="company-name">Company Name:</label>
+              <label className="inpu" htmlFor="company-name">Company Name:</label>
               <input
                 type="text"
                 id="company-name"
                 name="companyName"
                 value={formData.companyName}
                 onChange={handleChange}
-                 className="lbl"
+                className="lbl1"
               />
             </div>
             <div className="form-field">
-              <label htmlFor="place">Place:</label>
+              <label className="inpu" htmlFor="place">Place:</label>
               <input
                 type="text"
                 id="place"
                 name="place"
                 value={formData.place}
                 onChange={handleChange}
-                 className="lbl"
+                className="lbl1"
               />
             </div>
             <div className="form-field">
-              <label  htmlFor="pincode">Pincode:</label>
+              <label className="inpu" htmlFor="pincode">Pincode:</label>
               <input
                 type="text"
                 id="pincode"
                 name="pincode"
                 value={formData.pincode}
                 onChange={handleChange}
-                className="lbl"
+                className="lbl1"
               />
             </div>
             <div className="form-field">
-              <label  htmlFor="district">District:</label>
+              <label className="inpu" htmlFor="district">District:</label>
               <input
                 type="text"
                 id="district"
                 name="district"
                 value={formData.district}
                 onChange={handleChange}
-                className="lbl"
+                className="lbl1"
               />
             </div>
             <div className="form-field">
-              <label htmlFor="state">State:</label>
+              <label className="inpu" htmlFor="state">State:</label>
               <input
                 type="text"
                 id="state"
                 name="state"
                 value={formData.state}
                 onChange={handleChange}
-                 className="lbl"
+                className="lbl1"
               />
             </div>
             <div className="form-field">
-              <label htmlFor="country">Country:</label>
+              <label className="inpu" htmlFor="country">Country:</label>
               <input
                 type="text"
                 id="country"
                 name="country"
                 value={formData.country}
                 onChange={handleChange}
-                 className="lbl"
+                className="lbl1"
               />
             </div>
             <div className="form-actions">
               <button className="addb" type="button" onClick={handleSave}>
                 Add
               </button>
-              <button
+              <button 
               className="canb"
                 type="button"
                 onClick={() => {
@@ -210,10 +210,13 @@ const SellerPage = () => {
         ) : (
           // If no company details are found, show the "Add Company Details" button
           <div>
-            {/* <p>No company details found.</p> */}
+            <p>No company details found.</p>
             <button className="seab" onClick={handleAddCompany}>Add Company Details</button>
           </div>
         )}
+            <div>
+              <button className="wi1" onClick={() => navigate("/sellerOrder")}>Orders</button>
+            </div>
       </div>
 
       {/* Right Section: Products and Add Button */}
@@ -231,10 +234,10 @@ const SellerPage = () => {
           ))}
         </div>
         <button
-          className="addproductbtn1"
+          className="addpr"
           onClick={() => navigate("/addProduct")}
         >
-         +
+          +
         </button>
       </div>
     </div>

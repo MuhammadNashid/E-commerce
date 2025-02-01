@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "./Pdetails.css"
+import "./Pdetails.css";
 
 const ProductDetails = () => {
   const { productId } = useParams();
@@ -55,11 +55,6 @@ const ProductDetails = () => {
           <p className="product-price">₹{product.price}</p>
           <p className="product-description">{product.description}</p>
           <p className="product-quantity">Available Quantity: {product.quantity}</p>
-
-          {/* <div className="button-group">
-            <button className="add-to-cart-button">Edit</button>
-            <button className="buy-now-button">Delete</button>
-          </div> */}
         </div>
       </div>
     </div>
